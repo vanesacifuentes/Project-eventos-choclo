@@ -8,10 +8,11 @@ import Registro_Usuario from './components/registro_usuario';
 //import Registro_Usuario from './components/registro_usuario';
 import Inicio from './components/inicio_principal';
 import HeaderEventos from './components/header_eventos';
+import Menu from './components/Menu/Menu';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Login/>
+    <Menu/>
   </React.StrictMode>,
   document.getElementById('root')
 );
