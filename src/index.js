@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Login from './components/login';
 import Registro_Usuario from './components/registro_usuario';
 //import Registro_Usuario from './components/registro_usuario';
 import Inicio from './components/inicio_principal';
 import HeaderEventos from './components/header_eventos';
 import Menu from './components/Menu/Menu';
+import Login from './components/Login/login';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Menu/>
+    <Login/>
   </React.StrictMode>,
   document.getElementById('root')
 );

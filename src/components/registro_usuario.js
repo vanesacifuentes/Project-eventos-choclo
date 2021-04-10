@@ -3,6 +3,12 @@ import React from 'react';
 
 function Registro_Usuario(){
 
+    function crearUsuario(e){
+        const name = e.target.name
+        alert(name)
+    }
+
+
     return(
         <>
             <div className="container d-flex justify-content-center align-items-center">
@@ -14,28 +20,29 @@ function Registro_Usuario(){
                 <form>
                     <div className="form-group">
                         <label>Nombre y apellido</label>
-                        <input type="text" className="form-control mt-3 mb-3" placeholder="Nombre Completo"></input>
+                        <input  name='nombre' type="text" className="is-invalid form-control mt-3 mb-3" placeholder="Nombre Completo"></input>
+                        <div className='mb-3 invalid-feedback'>Campo Obligatorio</div>
                     </div>
 
                     <div className="form-group">
                         <label>Cédula</label>
-                        <input type="number" className="form-control mt-3 mb-3" placeholder="Cédula"></input>
+                        <input name='cedula' type="number" className="form-control mt-3 mb-3" placeholder="Cédula"></input>
                     </div>
 
                     <div className="form-group">
                         <label>Correo electrónico</label>
-                        <input type="email" className="form-control mt-3 mb-3" placeholder="Correo electrónico"></input>
+                        <input name='correo' type="email" className="form-control mt-3 mb-3" placeholder="Correo electrónico"></input>
                     </div>
 
                     <div className="form-group">
                         <label>Contraseña</label>
-                        <input type="password" className="form-control mt-3 mb-5" placeholder="Contraseña"></input>
+                        <input name='pass' type="password" className="form-control mt-3 mb-5" placeholder="Contraseña"></input>
                     </div>
 
                 </form>
 
                 <div className="row justify-content-center align-items-center mx-5">
-                <button type="button" className="btn btn-success col-2">Acceder</button>
+                <button name='btn' onClick={crearUsuario} type="submit" className="btn btn-success col-2">Acceder</button>
                 </div>
 
                 </div>

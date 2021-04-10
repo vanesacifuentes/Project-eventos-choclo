@@ -1,5 +1,5 @@
 import React from 'react';
-import imagen from '../assets/img/img1.jpg'
+//import imagen from '../assets/img/img1.jpg' <img src={imagen} style={{width : 100}}/>
 
 function HeaderEventos(){
 
@@ -8,7 +8,7 @@ function HeaderEventos(){
         <>
         <div className="row bg-warning">
             <div className=" bg-warning col-2 align-items-center d-flex justify-content-center px-5">
-                <img src={imagen} style={{width : 100}}/>
+                
             </div>
             <div className="col-10 d-flex flex-column justify-content-center">
                 <div className="d-flex justify-content-end " >
