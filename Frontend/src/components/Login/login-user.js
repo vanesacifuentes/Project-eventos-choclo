@@ -65,12 +65,9 @@ function LoginUser(){
             const response = await fetch('http://localhost:5000');
             const data = await response.json();
 
-
             if(response.status == 200){
              return <Link to="/" />
-            }
-            
-            
+            }            
         }
     }
 
