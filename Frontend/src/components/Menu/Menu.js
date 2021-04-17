@@ -52,11 +52,15 @@ function Menu() {
 
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <Link to="/LoginUser"
+                                        <Link to="/loginuser"
                                         className="dropdown-item" >Iniciar Sesión
                                         </Link>
                                         </li>
-                                    <li><a className="dropdown-item" href="#2">Registrarme</a></li>
+                                    <li>
+                                        <Link to="/registeruser"
+                                        className="dropdown-item" >Registrarme
+                                        </Link>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

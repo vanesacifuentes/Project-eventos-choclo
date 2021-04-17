@@ -11,7 +11,7 @@ function Eventos(){
         <>
             <Menu/>
 
-            <h1>Usted es un feo </h1>
+            <h1 className="p-5">Usted es un feo </h1>
 
             
         </>

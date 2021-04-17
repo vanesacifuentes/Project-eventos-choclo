@@ -62,14 +62,35 @@ function LoginUser(){
     
     async function saveUser(){
         if((user !='') && (password !='')){
-            const response = await fetch('http://localhost:5000');
-            const data = await response.json();
 
-            if(response.status == 200){
-             return <Link to="/" />
-            }            
+        var datos =  {         
+            name: user,
+            pass: password
         }
-    }
+
+        
+        try {
+            const response = await fetch('http://localhost:5000',{
+            method: 'POST',
+            body: JSON.stringify(datos),
+            headers: {
+                    'Content-Type': 'application/json'
+                }
+
+            });
+
+            const data = await response.json();
+            //window.location.href= "./"   
+            
+        } catch (error) {
+            alert("nnn")
+        }
+         
+              
+                
+        }         
+        }
+    
 
 
     ///VARIABLE 

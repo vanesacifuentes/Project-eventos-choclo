@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { response } = require('express');
-const {Pool} = require('pg')
+const {Pool} = require('pg');
+
 
 const pool = new Pool({
     host: 'localhost',
@@ -17,21 +18,42 @@ let objeto = {
 
 }
 
+
 const getUser = async (req, res)=>{
 
-   const response= await pool.query('SELECT * FROM usuario WHERE id_usuario=1');
 
-   console.log(response.rows)
+    try {
 
-   res.json(response.rows[0])
+        const response= await pool.query("SELECT * FROM login WHERE username = $1",[req.body.name]);
 
+        //console.log(req.body.name)
+     
+        console.log(response.rows[0])
+
+        
+
+        if(response.rows[0] === undefined){
+
+            res.json(JSON.stringify({}))
+              
+
+        }else{
+            res.json(JSON.stringify(response.rows[0])) 
+        }
+
+        
+    } catch  {
+        
+        res.json(JSON.stringify({}))
+        
+    }
 
 
 }
 
 
 
-router.get('/', (req,res)=>{
+router.post('/', (req,res)=>{
 
     getUser(req, res);
 

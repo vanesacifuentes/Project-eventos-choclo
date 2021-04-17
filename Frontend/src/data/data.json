@@ -1,0 +1,21 @@
+{
+    "usuarios":[
+    {
+    "id":1,
+    "apellido":"Lopez",
+    "nombre": "Ana",
+    "username":"alopez",
+    "password": "12345"
+    },
+
+    {
+    "id":2,
+    "apellido":"Fast",
+    "nombre": "Max",
+    "username":"maxf",
+    "password": "12345"
+
+
+    }
+    ]
+}
