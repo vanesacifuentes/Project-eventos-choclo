@@ -15,9 +15,7 @@ function LoginUser(){
     
     function registro(){
 
-        return(
-            alert('registro')    
-        )
+        window.location.href= "./registeruser"
     }
     
 
