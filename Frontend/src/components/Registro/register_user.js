@@ -1,26 +1,58 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import Menu from '../Menu/Menu';
 
 
 function Register_User(){
+
+
+
+    const [name, setName] = useState('');
+    const [license, setLicense] = useState('');
+    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+
+    const [validName, setValidName] = useState('');
+    const [validLicense, setValidLicense] = useState('');
+    const [validEmail, setValidEmail] = useState('');
+    const [validPass, setValidPass] = useState('');
+    const [validUserName, setValidUserName] = useState('');
+
+
+
+
 
     function crearUsuario(e){
         const name = e.target.name
         alert(name)
     }
 
-    function handleSubmit(){
-
-        return(
-            alert('submit')    
-        )
+    function handleSubmit(e){
+        e.preventDefault()
+        
     }
 
-    function handleChange(){
-
-        return(
-            console.log('change')    
-        )
+    function handleChange(targetName, targetValue){
+        if(targetName === "name"){
+            setName(targetValue)  
+        }else {
+            if(targetName === "license"){
+                setLicense(targetValue) 
+            }else{
+                if(targetName === "email"){
+                    setEmail(targetValue)
+                }else{
+                    if(targetName === "username"){
+                        setUserName(targetValue)
+                    }else{
+                        if(targetName === "password"){
+                            setPassword(targetValue)
+                        }
+                    }
+                }
+            }    
+        }    
     }
 
     return(
@@ -41,7 +73,7 @@ function Register_User(){
                                 
                                         <input 
                                             id= "nombre-usuario" 
-                                            name= "nombre-usuario"
+                                            name= "name"
                                             type="text" 
                                             className = ""
                                             placeholder="Nombre completo" 
@@ -55,7 +87,7 @@ function Register_User(){
                                 
                                         <input 
                                             id= "cedula" 
-                                            name= "cedula"
+                                            name= "license"
                                             type="number" 
                                             className = ""
                                             placeholder="Cédula" 
@@ -69,7 +101,7 @@ function Register_User(){
                                 
                                         <input 
                                             id= "correo" 
-                                            name= "correo"
+                                            name= "email"
                                             type="email" 
                                             className = ""
                                             placeholder="Correo electrónico" 
@@ -106,9 +138,17 @@ function Register_User(){
                                     <div className = "mb-3 invalid-feedback">Ingrese la contrasena</div>
                                     </div>
 
+                                    <div className="row justify-content-center align-items-center ">
+
+                                        <button  type="submit" 
+                                        className="btn btn-success col-3 mx-3" id="boton1">
+                                        Registrarse</button>
+
+                                        <button onClick={()=>{}} type="button" 
+                                        className="btn btn-success col-4" id="boton2">Cancelar</button>
+                                     </div>
+
                                     
-
-
 
                                 </form>
                            
