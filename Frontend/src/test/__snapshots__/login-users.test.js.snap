@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas sobre el componente Login usuario Probando con enzyme 1`] = `
+<Fragment>
+  <Menu />
+  <hr />
+  <div
+    className="container-fluid "
+  >
+    <div
+      className="modal-dialog text-center"
+    >
+      <div
+        className="col-sm-9 main-section"
+      >
+        <div
+          className="modal-content bg-warning"
+        >
+          <div
+            className="col-12 user-img"
+          >
+            <i
+              className="fas fa-users fa-6x d-flex justify-content-center"
+              style={
+                Object {
+                  "color": "#ffffff",
+                }
+              }
+            />
+            <h3
+              className="mb-3"
+            >
+              Bienvenido,
+            </h3>
+            <h6
+              className="mb-3 align-items-start"
+            >
+              Por favor autentíquese para ingresar
+            </h6>
+            <form
+              onSubmit={[Function]}
+            >
+              <div
+                className="form-group"
+                id="#user-group"
+              >
+                <label>
+                  Usuario
+                </label>
+                <input
+                  className="form-control  "
+                  id="usuario"
+                  name="usuario"
+                  onChange={[Function]}
+                  placeholder="Usuario"
+                  type="text"
+                />
+                <div
+                  className=" mb-3 invalid-feedback"
+                >
+                  Ingrese el usuario
+                </div>
+              </div>
+              <div
+                className="form-group"
+                id="contrasena-group"
+              >
+                <label>
+                  Contraseña
+                </label>
+                <input
+                  className="form-control  "
+                  id="password"
+                  name="password"
+                  onChange={[Function]}
+                  placeholder="Contraseña"
+                  type="password"
+                />
+                <div
+                  className="mb-3 invalid-feedback"
+                >
+                  Ingrese la contraseña
+                </div>
+              </div>
+              <h6
+                className=" mb-3"
+              >
+                ¿Olvidó su contraseña?
+              </h6>
+              <div
+                className="row justify-content-center align-items-center "
+              >
+                <button
+                  className="btn btn-success col-3 mx-3"
+                  id="boton1"
+                  type="submit"
+                >
+                  Ingresar
+                </button>
+                <button
+                  className="btn btn-success col-4"
+                  id="boton2"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Registrarse
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Fragment>
+`;

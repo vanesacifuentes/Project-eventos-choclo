@@ -106,6 +106,8 @@ function Register_User(){
                                     <div className = "mb-3 invalid-feedback">Ingrese la contrasena</div>
                                     </div>
 
+                                    
+
 
 
                                 </form>
