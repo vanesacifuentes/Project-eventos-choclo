@@ -11,7 +11,7 @@ function Contacto(){
         <>
             <Menu/>
 
-            <h1 className="p-5">Usted es un dindo </h1>
+            <h1 className="p-5"> Página de Contacto </h1>
 
             
         </>

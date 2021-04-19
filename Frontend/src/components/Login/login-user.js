@@ -3,17 +3,8 @@ import Footer from '../Footer/footer';
 import Menu from '../Menu/Menu';
 import "./login-user.css"
 
-
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from 'react-router-dom'
-
-
-
 function LoginUser(){
+
     <link rel="stylesheet" type="text/css" href="/login-user.css"></link>
 
     const [user, setUser] = useState('');
@@ -22,14 +13,13 @@ function LoginUser(){
     const [validUser, setValidUser] = useState('');
     
     
-    
-
     function registro(){
 
         return(
             alert('registro')    
         )
     }
+    
 
     function handleChange(name, value){
         if(name === "usuario"){
@@ -39,8 +29,6 @@ function LoginUser(){
         }
     };
 
-
-    
 
     function handleSubmit(e){
         e.preventDefault()
@@ -67,8 +55,7 @@ function LoginUser(){
             name: user,
             pass: password
         }
-
-        
+      
         try {
             const response = await fetch('http://localhost:5000',{
             method: 'POST',
@@ -80,16 +67,14 @@ function LoginUser(){
             });
 
             const data = await response.json();
-            //window.location.href= "./"   
+            window.location.href= "./"   
             
         } catch (error) {
-            alert("nnn")
+            alert("Ingreso no permitido")
         }
-         
-              
-                
+                  
         }         
-        }
+    }
     
 
 
@@ -118,15 +103,15 @@ function LoginUser(){
                             <div id= "#user-group" className= "form-group">
                                 <label>Usuario</label>
                                 
-                                    <input 
-                                        id= "usuario" 
-                                        name= "usuario"
-                                        type="text" 
-                                        className = {classNameUser}
-                                        placeholder="Usuario" 
-                                        onChange= {(e) => handleChange(e.target.name, e.target.value)}>
-                                    </input>
-                                    <div className = " mb-3 invalid-feedback">Ingrese el usuario</div>                           
+                                <input 
+                                    id= "usuario" 
+                                    name= "usuario"
+                                    type="text" 
+                                    className = {classNameUser}
+                                    placeholder="Usuario" 
+                                    onChange= {(e) => handleChange(e.target.name, e.target.value)}>
+                                </input>
+                                <div className = " mb-3 invalid-feedback">Ingrese el usuario</div>                           
        
                             </div>
 
@@ -150,11 +135,11 @@ function LoginUser(){
                             <div className="row justify-content-center align-items-center ">
 
                                 <button  type="submit" 
-                                className="btn btn-success col-3 mx-3" >
+                                className="btn btn-success col-3 mx-3" id="boton1">
                                 Ingresar</button>
 
                                 <button onClick={()=>{registro()}} type="button" 
-                                className="btn btn-success col-4" >Registrarse</button>
+                                className="btn btn-success col-4" id="boton2">Registrarse</button>
                             </div>
   
                         </form >
