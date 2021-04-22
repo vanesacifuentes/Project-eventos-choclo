@@ -20,8 +20,7 @@
     
     background-color: #ffff;
     width: 100%;
-    margin:0 auto;
-    margin-top:15%;
+    margin:0 auto;  
     padding: 0;
 }
 
@@ -59,3 +58,8 @@ label{
 .h6{
     color: #ffff;
 }
+
+.img{
+    width: 150px;
+}
+
