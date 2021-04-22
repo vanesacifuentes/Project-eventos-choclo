@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import Menu from '../Menu/Menu';
+import './register_user.css'
 
 
 function Register_User(){
@@ -59,12 +60,12 @@ function Register_User(){
         <>
         <Menu/>
             <div className="container-fluid ">
-                <div className= "modal-dialog text-center">
+                <div className= "modal-dialog text-center pt-4">
                     <div className="col-sm-12 main-section">
-                        <div className="modal-content bg-warning">
+                        <div className="modal-content">
                             <div className="col-12 user-img">
-                            <h3 className="mt-3">Crear una cuenta</h3>
-                            <h6 className="mt-3 align-items-start">Por favor ingrese sus datos personales para el registro</h6>
+                            <h3 className="h3 mt-3">Crear una cuenta</h3>
+                            <h6 className=" h6 mt-3 align-items-start">Por favor ingrese sus datos personales para el registro</h6>
                                 
                                 <form onSubmit= {handleSubmit}>
 
@@ -138,14 +139,14 @@ function Register_User(){
                                     <div className = "mb-3 invalid-feedback">Ingrese la contrasena</div>
                                     </div>
 
-                                    <div className="row justify-content-center align-items-center ">
+                                    <div className="row justify-content-center align-items-center mt-3">
 
                                         <button  type="submit" 
-                                        className="btn btn-success col-3 mx-3" id="boton1">
+                                        className="btn col-3 mx-3" id="boton1">
                                         Registrarse</button>
 
                                         <button onClick={()=>{}} type="button" 
-                                        className="btn btn-success col-4" id="boton2">Cancelar</button>
+                                        className="btn col-4" id="boton2">Cancelar</button>
                                      </div>
 
                                     

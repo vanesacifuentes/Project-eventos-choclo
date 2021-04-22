@@ -1,4 +1,5 @@
 import React from 'react';
+import './Menu.css'
 //import img from '.Menu/logo2.jpg'
 //<img src={imagen} style={{width : 100}}/>
 
@@ -13,9 +14,9 @@ function Menu() {
 
     return (
         <>
-            <nav className="navbar navbar-light navbar-expand-md  bg-warning  fixed-top">
-                <div className="container-fluid">
-                    <a className="navbar-brand h1" href="#">Eventos Choclo</a>
+            <nav className="navbar navbar-light navbar-expand-md  fixed-top">
+                <div className="col-11 container-fluid bg-warning">
+                    <a className="navbar-brand h1 mr-5" href="#">Eventos Choclo</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" 
                     aria-controls="menu-principal" aria-expanded="false" aria-label="Desplegar menú de navegación">
                         <span className="navbar-toggler-icon"></span>

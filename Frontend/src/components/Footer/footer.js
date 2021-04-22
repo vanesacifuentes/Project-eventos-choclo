@@ -1,10 +1,11 @@
 import React from 'react';
+import './footer.css'
 
 function Footer(){
 
     return(
         <>
-        <footer className="bg-warning text-center text-white">
+        <footer className=" footer text-center text-white">
     
         <div className="container p-4 pb-0">
           

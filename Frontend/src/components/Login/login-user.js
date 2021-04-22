@@ -84,21 +84,21 @@ function LoginUser(){
 
     return(
         <>
-        <Menu/>
+       
         <hr/>
             <div className="container-fluid ">
                 
                 <div className= "modal-dialog text-center">
                     <div className="col-sm-9 main-section">
-                        <div className="modal-content bg-warning">
+                        <div className="modal-content">
                             <div className="col-12 user-img">
-                            <i className="fas fa-users fa-6x d-flex justify-content-center" 
+                            <i className="mt-5 fas fa-users fa-6x d-flex justify-content-center" 
                                     style={{color: "#ffffff"}}></i>
-                            <h3 className="mb-3">Bienvenido,</h3>
-                            <h6 className="mb-3 align-items-start">Por favor autentíquese para ingresar</h6>
+                            <h3 className="h3 mb-3">Bienvenido,</h3>
+                            <h6 className="h6 mb-3 align-items-start">Por favor autentíquese para ingresar</h6>
 
                             <form onSubmit= {handleSubmit}>
-                            <div id= "#user-group" className= "form-group">
+                            <div id= "#user-group" className= "form-group ">
                                 <label>Usuario</label>
                                 
                                 <input 
@@ -109,7 +109,7 @@ function LoginUser(){
                                     placeholder="Usuario" 
                                     onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                 </input>
-                                <div className = " mb-3 invalid-feedback">Ingrese el usuario</div>                           
+                                <div className = "h5 mb-2 invalid-feedback">Ingrese el usuario</div>                           
        
                             </div>
 
@@ -125,20 +125,23 @@ function LoginUser(){
                                     onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                 </input>
 
-                                <div className = "mb-3 invalid-feedback">Ingrese la contraseña</div>
+                                <div className = "h5 mb-2 invalid-feedback">Ingrese la contraseña</div>
                             </div>
 
-                                <h6 className=" mb-3" >¿Olvidó su contraseña?</h6>
 
-                            <div className="row justify-content-center align-items-center ">
+                            <div className="row justify-content-center align-items-center mt-5 mb-3">
 
                                 <button  type="submit" 
-                                className="btn btn-success col-3 mx-3" id="boton1">
+                                className="btn col-3 mx-3" id="boton1">
                                 Ingresar</button>
 
                                 <button onClick={()=>{registro()}} type="button" 
-                                className="btn btn-success col-4" id="boton2">Registrarse</button>
+                                className="btn col-4" id="boton2">Registrarse</button>
+
+                                
                             </div>
+
+                            <h6 className=" h6 " >¿Olvidó su contraseña?</h6>
   
                         </form >
                             </div>
@@ -146,7 +149,7 @@ function LoginUser(){
                     </div>
                 </div>
             </div>
-            <Footer/>
+            
         </>
     );
 }

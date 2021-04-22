@@ -1,10 +1,14 @@
 .form-group input{
+    width: 90%;
     height: 42px;
     font-size: 12px;
     border:0;
     margin-top: 3px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 3px;
     border-radius: 5px;
+    
 }
 
 .form-group label{
@@ -13,31 +17,45 @@
 
 
 .main-section{
+    
+    background-color: #ffff;
+    width: 100%;
     margin:0 auto;
     margin-top:15%;
     padding: 0;
 }
 
+
+
 .modal-content{
-    background-color: #e4d60f;
-    opacity: .85;
-    padding: 0 20px;
-    box-shadow: 0px 0px 3px #e4d60f;
+    background-color: #00534E;
+    opacity: .99;
+    padding: 20px;
+    box-shadow: 9px 9px 9px #00534E;
+    width: 100%;
+    
 }
 
-button{
-    width: 60%;
-    margin: 5px 0 25px;
+.btn{
+    background-color: #558F77;
+    color: #ffff;
 }
 
 label{
-    font-size: 16px;
+    font-size: 20px;
+    color: #ffff;
 }
 
-.form-group#user-group{
-    content: "\f007";
+.invalid-feedback{
+    color: #E08FBB
+
 }
 
-.form-group#contrasena-group{
-    content: "\f023";
+.h3{
+    color: #ffff;
+}
+
+
+.h6{
+    color: #ffff;
 }

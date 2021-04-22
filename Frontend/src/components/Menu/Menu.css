@@ -1,0 +1,39 @@
+container-fluid{
+    padding: auto;
+}
+
+.navbar{
+    background-color: #239089;
+    font-family: 'RocknRoll One', sans-serif;
+    
+}
+
+/*.navbar{
+    background-color: #0c3c84;
+   
+}*/
+
+.navbar-brand{
+    font-size: 35px;
+    color: #ffff;
+}
+
+.li{
+    color: #ffff;
+}
+
+.navbar-collapse {
+    font-size: 25px;
+    color: #ffff;
+}
+
+.navbar-nav {
+    color: #ffff;
+}
+
+.container-fluid{
+    padding: 8px;
+}
+
+
+
