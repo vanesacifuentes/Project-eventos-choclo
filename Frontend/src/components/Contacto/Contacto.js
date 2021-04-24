@@ -13,6 +13,10 @@ function Contacto(){
 
             <h1 className="p-5"> Página de Contacto </h1>
 
+            <hr></hr>
+
+            <Footer/>
+
             
         </>
     );
