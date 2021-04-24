@@ -11,7 +11,10 @@ function Eventos(){
         <>
             <Menu/>
 
-            <h1 className="p-5"> Páginas de eventos </h1>
+            <h1 className="pt-5"> Páginas de eventos </h1>
+            <hr></hr>
+
+            <Footer/>
 
             
         </>

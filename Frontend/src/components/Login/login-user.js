@@ -92,7 +92,7 @@ function LoginUser() {
 
                 <div className=" d-flex justify-content-center align-items-center ">
                     <Link to="/">
-                        <img className='img mb-1' src={Imagen} />
+                        <h1>Imagen eventos choclo</h1>
 
                     </Link>
                 </div>

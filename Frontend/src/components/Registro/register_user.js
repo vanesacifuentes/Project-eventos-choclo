@@ -64,7 +64,7 @@ function Register_User() {
 
                 <div className=" d-flex justify-content-center align-items-center ">
                     <Link to="/">
-                        <img className='img mb-1' src={Imagen} />
+                        <h1>Imagen eventos choclo</h1>
 
                     </Link>
                 </div>
@@ -154,9 +154,10 @@ function Register_User() {
                                         <button type="submit"
                                             className="btn col-3 mx-3" id="boton1">
                                             Registrarme</button>
-
+                                        
                                         <button onClick={() => { }} type="button"
-                                            className="btn col-4" id="boton2">Cancelar</button>
+                                            className=" btn col-4" id="boton2">Cancelar</button>
+                                        
                                     </div>
                                 </form>
                             </div>
