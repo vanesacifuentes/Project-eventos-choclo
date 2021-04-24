@@ -23,19 +23,78 @@ function Register_User(){
 
 
 
-    function crearUsuario(e){
-        const name = e.target.name
-        alert(name)
+    /*function crearUsuario(){
+        var datos =  {         
+            name,
+            license,
+            email,
+            userName,
+            password
+        }
+
+        try {
+            const response = await fetch('http://localhost:5000/registro',{
+            method: 'POST',
+            body: JSON.stringify(datos),
+            headers: {
+                    'Content-Type': 'application/json'
+                }
+
+            });
+
+            const data = await response.json();
+            window.location.href= "./"   
+            
+        } catch (error) {
+            alert("Ingreso no permitido")
+        }
+    }*/
+
+    function validarCampos(){
+        let validador = true
+        if(name ===''){  
+            setValidName('is-invalid')
+            validador = false
+        }else{
+            if(license ===''){  
+                setValidLicense('is-invalid')
+                validador = false
+            }else{
+                if(email ===''){  
+                    setValidEmail('is-invalid')
+                    validador = false
+                }else{
+                    if(userName ===''){  
+                        setValidUserName('is-invalid')
+                        validador = false
+                    }else{
+                        if(password ===''){  
+                            setValidPass('is-invalid')
+                            validador = false
+                        }
+                    }
+                }
+            }
+        }
+        return validador
     }
 
     function handleSubmit(e){
         e.preventDefault()
+        if(validarCampos){
+           // crearUsuario(e)
+
+            
+        }
+
         
     }
 
+
+
     function handleChange(targetName, targetValue){
         if(targetName === "name"){
-            setName(targetValue)  
+            setName(targetValue) 
         }else {
             if(targetName === "license"){
                 setLicense(targetValue) 
@@ -75,7 +134,7 @@ function Register_User(){
                                             id= "nombre-usuario" 
                                             name= "name"
                                             type="text" 
-                                            className = ""
+                                            className = {validName}
                                             placeholder="Nombre completo" 
                                             onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
@@ -89,7 +148,7 @@ function Register_User(){
                                             id= "cedula" 
                                             name= "license"
                                             type="number" 
-                                            className = ""
+                                            className = {validLicense}
                                             placeholder="Cédula" 
                                             onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
@@ -103,8 +162,7 @@ function Register_User(){
                                             id= "correo" 
                                             name= "email"
                                             type="email" 
-                                            className = ""
-                                            placeholder="Correo electrónico" 
+                                            className = {validEmail}                                            placeholder="Correo electrónico" 
                                             onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
                                     <div className = "mb-3 invalid-feedback">Ingrese el correo electrónico</div>
@@ -117,7 +175,7 @@ function Register_User(){
                                             id= "username" 
                                             name= "username"
                                             type="text" 
-                                            className = ""
+                                            className = {validUserName}
                                             placeholder="Username" 
                                             onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
@@ -131,7 +189,7 @@ function Register_User(){
                                             id= "password" 
                                             name= "password"
                                             type="password" 
-                                            className = ""
+                                            className = {validPass}
                                             placeholder="Contraseña" 
                                             onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
