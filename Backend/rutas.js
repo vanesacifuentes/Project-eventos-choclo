@@ -62,4 +62,13 @@ router.post('/', (req,res)=>{
 
 })
 
+router.post('/registro', (req,res)=>{
+
+    getUser(req, res);
+
+    //res.json(objeto)
+
+
+})
+
 module.exports = router
