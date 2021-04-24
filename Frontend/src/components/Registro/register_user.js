@@ -25,24 +25,83 @@ function Register_User() {
 
 
 
-    function crearUsuario(e) {
-        const name = e.target.name
-        alert(name)
+    /*function crearUsuario(){
+        var datos =  {         
+            name,
+            license,
+            email,
+            userName,
+            password
+        }
+
+        try {
+            const response = await fetch('http://localhost:5000/registro',{
+            method: 'POST',
+            body: JSON.stringify(datos),
+            headers: {
+                    'Content-Type': 'application/json'
+                }
+
+            });
+
+            const data = await response.json();
+            window.location.href= "./"   
+            
+        } catch (error) {
+            alert("Ingreso no permitido")
+        }
+    }*/
+
+    function validarCampos(){
+        let validador = true
+        if(name ===''){  
+            setValidName('is-invalid')
+            validador = false
+        }else{
+            if(license ===''){  
+                setValidLicense('is-invalid')
+                validador = false
+            }else{
+                if(email ===''){  
+                    setValidEmail('is-invalid')
+                    validador = false
+                }else{
+                    if(userName ===''){  
+                        setValidUserName('is-invalid')
+                        validador = false
+                    }else{
+                        if(password ===''){  
+                            setValidPass('is-invalid')
+                            validador = false
+                        }
+                    }
+                }
+            }
+        }
+        return validador
     }
 
     function handleSubmit(e) {
         e.preventDefault()
+        if(validarCampos){
+           // crearUsuario(e)
 
+            
+        }
+
+        
     }
 
-    function handleChange(targetName, targetValue) {
-        if (targetName === "name") {
-            setName(targetValue)
-        } else {
-            if (targetName === "license") {
-                setLicense(targetValue)
-            } else {
-                if (targetName === "email") {
+
+
+    function handleChange(targetName, targetValue){
+        if(targetName === "name"){
+            setName(targetValue) 
+        }else {
+            if(targetName === "license"){
+                setLicense(targetValue) 
+            }else{
+                if(targetName === "email"){
                     setEmail(targetValue)
                 } else {
                     if (targetName === "username") {
@@ -81,70 +140,69 @@ function Register_User() {
 
                                     <div id="#user-group" className="form-group">
                                         <label>Nombre y apellido</label>
-
-                                        <input
-                                            id="nombre-usuario"
-                                            name="name"
-                                            type="text"
-                                            className=""
-                                            placeholder="Nombre completo"
-                                            onChange={(e) => handleChange(e.target.name, e.target.value)}>
+                                
+                                        <input 
+                                            id= "nombre-usuario" 
+                                            name= "name"
+                                            type="text" 
+                                            className = {validName}
+                                            placeholder="Nombre completo" 
+                                            onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
                                         <div className="mb-3 invalid-feedback">Ingrese el nombre de usuario</div>
                                     </div>
 
                                     <div id="#cedula-group" className="form-group">
                                         <label>Cédula</label>
-
-                                        <input
-                                            id="cedula"
-                                            name="license"
-                                            type="number"
-                                            className=""
-                                            placeholder="Cédula"
-                                            onChange={(e) => handleChange(e.target.name, e.target.value)}>
+                                
+                                        <input 
+                                            id= "cedula" 
+                                            name= "license"
+                                            type="number" 
+                                            className = {validLicense}
+                                            placeholder="Cédula" 
+                                            onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
                                         <div className="mb-3 invalid-feedback">Ingrese el número de cédula</div>
                                     </div>
 
                                     <div id="#correo-group" className="form-group">
                                         <label>Correo electrónico</label>
-
-                                        <input
-                                            id="correo"
-                                            name="email"
-                                            type="email"
-                                            className=""
-                                            placeholder="Correo electrónico"
-                                            onChange={(e) => handleChange(e.target.name, e.target.value)}>
+                                
+                                        <input 
+                                            id= "correo" 
+                                            name= "email"
+                                            type="email" 
+                                            className = {validEmail}                                            placeholder="Correo electrónico" 
+                                            onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
                                         <div className="mb-3 invalid-feedback">Ingrese el correo electrónico</div>
                                     </div>
 
                                     <div id="#username-group" className="form-group">
                                         <label>Nombre de usuario</label>
-
-                                        <input
-                                            id="username"
-                                            name="username"
-                                            type="text"
-                                            className=""
-                                            placeholder="Username"
-                                            onChange={(e) => handleChange(e.target.name, e.target.value)}>
+                                
+                                        <input 
+                                            id= "username" 
+                                            name= "username"
+                                            type="text" 
+                                            className = {validUserName}
+                                            placeholder="Username" 
+                                            onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
                                         <div className="mb-3 invalid-feedback">Ingrese username</div>
                                     </div>
 
                                     <div id="#cedula-group" className="form-group">
                                         <label>Contraseña</label>
-
-                                        <input
-                                            id="password"
-                                            name="password"
-                                            type="password"
-                                            className=""
-                                            placeholder="Contraseña"
-                                            onChange={(e) => handleChange(e.target.name, e.target.value)}>
+                                
+                                        <input 
+                                            id= "password" 
+                                            name= "password"
+                                            type="password" 
+                                            className = {validPass}
+                                            placeholder="Contraseña" 
+                                            onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
                                         <div className="mb-3 invalid-feedback">Ingrese la contrasena</div>
                                     </div>
