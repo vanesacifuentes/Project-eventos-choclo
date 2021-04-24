@@ -1,11 +1,13 @@
-
 import React, { useState } from 'react';
-import Menu from '../Menu/Menu';
+import './register_user.css'
+import Imagen from '../assets/logo ECH.png'
+
+import {
+    Link
+} from 'react-router-dom'
 
 
-function Register_User(){
-
-
+function Register_User() {
 
     const [name, setName] = useState('');
     const [license, setLicense] = useState('');
@@ -79,7 +81,7 @@ function Register_User(){
         return validador
     }
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault()
         if(validarCampos){
            // crearUsuario(e)
@@ -101,33 +103,42 @@ function Register_User(){
             }else{
                 if(targetName === "email"){
                     setEmail(targetValue)
-                }else{
-                    if(targetName === "username"){
+                } else {
+                    if (targetName === "username") {
                         setUserName(targetValue)
-                    }else{
-                        if(targetName === "password"){
+                    } else {
+                        if (targetName === "password") {
                             setPassword(targetValue)
                         }
                     }
                 }
-            }    
-        }    
+            }
+        }
     }
 
-    return(
+    return (
         <>
-        <Menu/>
+       
             <div className="container-fluid ">
-                <div className= "modal-dialog text-center">
-                    <div className="col-sm-12 main-section">
-                        <div className="modal-content bg-warning">
-                            <div className="col-12 user-img">
-                            <h3 className="mt-3">Crear una cuenta</h3>
-                            <h6 className="mt-3 align-items-start">Por favor ingrese sus datos personales para el registro</h6>
-                                
-                                <form onSubmit= {handleSubmit}>
 
-                                    <div id= "#user-group" className= "form-group">
+                <div className=" d-flex justify-content-center align-items-center ">
+                    <Link to="/">
+                        <h1>Imagen eventos choclo</h1>
+
+                    </Link>
+                </div>
+
+                <div className="modal-dialog text-center mt-1 ">
+                    <div className="col-sm-12 main-section">
+                        <div className="modal-content">
+                            <div className="col-12 user-img">
+                                <h3 className="h3 mt-3">Crear una cuenta</h3>
+                                <h6 className=" h6 mt-3 align-items-start">
+                                    Por favor ingrese sus datos personales para el registro</h6>
+
+                                <form onSubmit={handleSubmit}>
+
+                                    <div id="#user-group" className="form-group">
                                         <label>Nombre y apellido</label>
                                 
                                         <input 
@@ -138,10 +149,10 @@ function Register_User(){
                                             placeholder="Nombre completo" 
                                             onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
-                                        <div className = "mb-3 invalid-feedback">Ingrese el nombre de usuario</div>
+                                        <div className="mb-3 invalid-feedback">Ingrese el nombre de usuario</div>
                                     </div>
 
-                                    <div id= "#cedula-group" className= "form-group">
+                                    <div id="#cedula-group" className="form-group">
                                         <label>Cédula</label>
                                 
                                         <input 
@@ -152,10 +163,10 @@ function Register_User(){
                                             placeholder="Cédula" 
                                             onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
-                                    <div className = "mb-3 invalid-feedback">Ingrese el número de cédula</div>
+                                        <div className="mb-3 invalid-feedback">Ingrese el número de cédula</div>
                                     </div>
 
-                                    <div id= "#correo-group" className= "form-group">
+                                    <div id="#correo-group" className="form-group">
                                         <label>Correo electrónico</label>
                                 
                                         <input 
@@ -165,10 +176,10 @@ function Register_User(){
                                             className = {validEmail}                                            placeholder="Correo electrónico" 
                                             onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
-                                    <div className = "mb-3 invalid-feedback">Ingrese el correo electrónico</div>
+                                        <div className="mb-3 invalid-feedback">Ingrese el correo electrónico</div>
                                     </div>
 
-                                    <div id= "#username-group" className= "form-group">
+                                    <div id="#username-group" className="form-group">
                                         <label>Nombre de usuario</label>
                                 
                                         <input 
@@ -179,10 +190,10 @@ function Register_User(){
                                             placeholder="Username" 
                                             onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
-                                        <div className = "mb-3 invalid-feedback">Ingrese username</div>
+                                        <div className="mb-3 invalid-feedback">Ingrese username</div>
                                     </div>
 
-                                    <div id= "#cedula-group" className= "form-group">
+                                    <div id="#cedula-group" className="form-group">
                                         <label>Contraseña</label>
                                 
                                         <input 
@@ -193,27 +204,24 @@ function Register_User(){
                                             placeholder="Contraseña" 
                                             onChange= {(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
-                                    <div className = "mb-3 invalid-feedback">Ingrese la contrasena</div>
+                                        <div className="mb-3 invalid-feedback">Ingrese la contrasena</div>
                                     </div>
 
-                                    <div className="row justify-content-center align-items-center ">
+                                    <div className="row justify-content-center align-items-center mt-3">
 
-                                        <button  type="submit" 
-                                        className="btn btn-success col-3 mx-3" id="boton1">
-                                        Registrarse</button>
-
-                                        <button onClick={()=>{}} type="button" 
-                                        className="btn btn-success col-4" id="boton2">Cancelar</button>
-                                     </div>
-
-                                    
-
+                                        <button type="submit"
+                                            className="btn col-3 mx-3" id="boton1">
+                                            Registrarme</button>
+                                        
+                                        <button onClick={() => { }} type="button"
+                                            className=" btn col-4" id="boton2">Cancelar</button>
+                                        
+                                    </div>
                                 </form>
-                           
                             </div>
                         </div>
                     </div>
-                </div>           
+                </div>
             </div>
         </>
     );

@@ -1,79 +1,82 @@
 import React, { useState } from 'react';
-import Footer from '../Footer/footer';
-import Menu from '../Menu/Menu';
 import "./login-user.css"
+import Imagen from '../assets/logo ECH.png'
 
-function LoginUser(){
 
-    <link rel="stylesheet" type="text/css" href="/login-user.css"></link>
+import {
+    Link
+} from 'react-router-dom'
+
+
+function LoginUser() {
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [validPass, setValidPass] = useState('');
     const [validUser, setValidUser] = useState('');
-    
-    
-    function registro(){
 
-        window.location.href= "./registeruser"
+
+    function registro() {
+
+        window.location.href = "./registeruser"
     }
-    
 
-    function handleChange(name, value){
-        if(name === "usuario"){
-            setUser(value)  
-        }else {
-            setPassword(value)      
+
+    function handleChange(name, value) {
+        if (name === "usuario") {
+            setUser(value)
+        } else {
+            setPassword(value)
         }
     };
 
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault()
-        if(user ===''){  
-           setValidUser('is-invalid')
-        }else{
-           setValidUser('')
+        if (user === '') {
+            setValidUser('is-invalid')
+        } else {
+            setValidUser('')
         }
 
-        if(password ===''){
+        if (password === '') {
             setValidPass('is-invalid')
-        }else{
+        } else {
             setValidPass('')
         }
-        
+
         saveUser();
     };
 
-    
-    async function saveUser(){
-        if((user !='') && (password !='')){
 
-        var datos =  {         
-            name: user,
-            pass: password
+    async function saveUser() {
+        if ((user != '') && (password != '')) {
+
+            var datos = {
+                name: user,
+                pass: password
+            }
+
+            try {
+                const response = await fetch('http://localhost:5000', {
+                    method: 'POST',
+                    body: JSON.stringify(datos),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+
+                });
+
+                const data = await response.json();
+                window.location.href = "./"
+
+            } catch (error) {
+                alert("Ingreso no permitido")
+            }
+
         }
-      
-        try {
-            const response = await fetch('http://localhost:5000',{
-            method: 'POST',
-            body: JSON.stringify(datos),
-            headers: {
-                    'Content-Type': 'application/json'
-                }
-
-            });
-
-            const data = await response.json();
-            window.location.href= "./"   
-            
-        } catch (error) {
-            alert("Ingreso no permitido")
-        }
-                  
-        }         
     }
-    
+
 
 
     ///VARIABLE 
@@ -82,71 +85,79 @@ function LoginUser(){
 
 
 
-    return(
+    return (
         <>
-        <Menu/>
-        <hr/>
+
             <div className="container-fluid ">
-                
-                <div className= "modal-dialog text-center">
+
+                <div className=" d-flex justify-content-center align-items-center ">
+                    <Link to="/">
+                        <h1>Imagen eventos choclo</h1>
+
+                    </Link>
+                </div>
+
+                <div className="modal-dialog text-center mt-1">
                     <div className="col-sm-9 main-section">
-                        <div className="modal-content bg-warning">
+                        <div className="modal-content">
                             <div className="col-12 user-img">
-                            <i className="fas fa-users fa-6x d-flex justify-content-center" 
-                                    style={{color: "#ffffff"}}></i>
-                            <h3 className="mb-3">Bienvenido,</h3>
-                            <h6 className="mb-3 align-items-start">Por favor autentíquese para ingresar</h6>
+                                <i className="mt-2 fas fa-users fa-6x"
+                                    style={{ color: "#ffff" }}></i>
+                                <h3 className="h3 mb-2">¡Bienvenido!</h3>
+                                <h6 className="h6 mb-3 align-items-start">Por favor autentíquese para ingresar</h6>
 
-                            <form onSubmit= {handleSubmit}>
-                            <div id= "#user-group" className= "form-group">
-                                <label>Usuario</label>
-                                
-                                <input 
-                                    id= "usuario" 
-                                    name= "usuario"
-                                    type="text" 
-                                    className = {classNameUser}
-                                    placeholder="Usuario" 
-                                    onChange= {(e) => handleChange(e.target.name, e.target.value)}>
-                                </input>
-                                <div className = " mb-3 invalid-feedback">Ingrese el usuario</div>                           
-       
-                            </div>
+                                <form onSubmit={handleSubmit}>
+                                    <div id="#user-group" className="form-group ">
+                                        <label>Usuario</label>
 
-                            <div id= "contrasena-group" className= "form-group">
-                                <label>Contraseña</label>
-                                
-                                <input  
-                                    id="password"
-                                    name="password"
-                                    type="password" 
-                                    className= {classNamePass}
-                                    placeholder= "Contraseña"
-                                    onChange= {(e) => handleChange(e.target.name, e.target.value)}>
-                                </input>
+                                        <input
+                                            id="usuario"
+                                            name="usuario"
+                                            type="text"
+                                            className={classNameUser}
+                                            placeholder="Usuario"
+                                            onChange={(e) => handleChange(e.target.name, e.target.value)}>
+                                        </input>
+                                        <div className="h5 mb-2 invalid-feedback">Ingrese el usuario</div>
+                                    </div>
 
-                                <div className = "mb-3 invalid-feedback">Ingrese la contraseña</div>
-                            </div>
+                                    <div id="contrasena-group" className="form-group">
+                                        <label>Contraseña</label>
 
-                                <h6 className=" mb-3" >¿Olvidó su contraseña?</h6>
+                                        <input
+                                            id="password"
+                                            name="password"
+                                            type="password"
+                                            className={classNamePass}
+                                            placeholder="Contraseña"
+                                            onChange={(e) => handleChange(e.target.name, e.target.value)}>
+                                        </input>
 
-                            <div className="row justify-content-center align-items-center ">
+                                        <div className="h5 mb-2 invalid-feedback">Ingrese la contraseña</div>
+                                    </div>
 
-                                <button  type="submit" 
-                                className="btn btn-success col-3 mx-3" id="boton1">
-                                Ingresar</button>
 
-                                <button onClick={()=>{registro()}} type="button" 
-                                className="btn btn-success col-4" id="boton2">Registrarse</button>
-                            </div>
-  
-                        </form >
+                                    <div className="row justify-content-center align-items-center mt-3 mb-3">
+
+                                        <button type="submit"
+                                            className="btn col-3 mx-3" id="boton1">
+                                            Ingresar</button>
+
+                                        <button onClick={() => { registro() }} type="button"
+                                            className="btn col-4" id="boton2">Registrarse</button>
+
+
+                                    </div>
+
+                                    <h6 className=" h6 " >¿Olvidó su contraseña?</h6>
+
+                                </form >
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <Footer/>
+
         </>
     );
 }

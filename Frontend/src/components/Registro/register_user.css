@@ -1,0 +1,22 @@
+
+.modal-content{
+    background-color: #00534E;
+    opacity: .99;
+    padding: 10px;
+    box-shadow: 9px 9px 9px #00534E;
+    width: 100%;
+    
+}
+
+.form-group input{
+    width: 90%;
+    height: 42px;
+    font-size: 12px;
+    border:0;
+    margin-top: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    
+}
