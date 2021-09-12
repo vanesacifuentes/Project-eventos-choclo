@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './register_user.css'
-import Imagen from '../assets/logo ECH.png'
 
 import {
     Link

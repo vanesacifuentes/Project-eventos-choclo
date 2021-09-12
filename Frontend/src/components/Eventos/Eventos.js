@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from '../Menu/Menu'
 import Footer from '../Footer/footer'
+import Card_eventos2 from '../Eventos/Card_eventos2'
 
 
 
@@ -11,8 +12,13 @@ function Eventos(){
         <>
             <Menu/>
 
-            <h1 className="pt-5"> Páginas de eventos </h1>
-            <hr></hr>
+            <div className="container">
+
+                <hr></hr>
+                <h6>Eventos</h6>
+            <Card_eventos2/>
+
+            </div>
 
             <Footer/>
 

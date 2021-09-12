@@ -28,7 +28,7 @@ const getUser = async (req, res)=>{
 
         //console.log(req.body.name)
      
-        console.log(response.rows[0])
+        //console.log(response.rows[0])
 
         
 
@@ -54,10 +54,11 @@ const getUser = async (req, res)=>{
 
 
 router.post('/', (req,res)=>{
+    console.log('mnddsnddsam')
 
-    getUser(req, res);
+    //getUser(req, res);
 
-    //res.json(objeto)
+    res.json(objeto)
 
 
 })

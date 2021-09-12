@@ -1,29 +1,31 @@
 import React from 'react';
 import Slider from './Slider'
+import Slider2 from './Slider2'
+import Card_inicio from './Card_inicio'
 import Menu from '../Menu/Menu'
 import Footer from '../Footer/footer'
 
 
-
-
-function Home(){
+function Home({user}){
 
     return(
         <>
             <Menu/>
-        <h1>Hola</h1>
-
-        
-			
+            
  
- <div className="container">
-     
-   <Slider /> 
-   
+            <div className="container">
+                user
+                <hr></hr>
+                <h1>Inicio</h1>
+                <Slider2 /> 
+                <hr className="featurette-divider" />
+                <Card_inicio /> 
+                <h1>{user ? "logged" : "unlogged"}</h1>
 
-   <hr className="featurette-divider" />
+                
+                
 
- </div>
+            </div>
 
             <Footer/>
         </>

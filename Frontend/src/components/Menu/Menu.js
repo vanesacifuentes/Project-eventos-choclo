@@ -1,6 +1,5 @@
 import React from 'react';
 import './Menu.css'
-//import Imagen from '../assets/logo menu.PNG'
 
 import {
     Link

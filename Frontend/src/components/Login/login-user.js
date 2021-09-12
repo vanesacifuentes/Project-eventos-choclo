@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./login-user.css"
-import Imagen from '../assets/logo ECH.png'
 
 
 import {
@@ -8,7 +7,7 @@ import {
 } from 'react-router-dom'
 
 
-function LoginUser() {
+function LoginUser({userF}) {
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
@@ -50,6 +49,7 @@ function LoginUser() {
 
 
     async function saveUser() {
+
         if ((user != '') && (password != '')) {
 
             var datos = {
@@ -66,9 +66,13 @@ function LoginUser() {
                     }
 
                 });
+             
+                
 
-                const data = await response.json();
-                window.location.href = "./"
+                userF(await response.json())
+                
+                
+               setTimeout(()=> window.location.href = "./",2000)
 
             } catch (error) {
                 alert("Ingreso no permitido")
@@ -139,9 +143,12 @@ function LoginUser() {
 
                                     <div className="row justify-content-center align-items-center mt-3 mb-3">
 
+
+                                    
                                         <button type="submit"
                                             className="btn col-3 mx-3" id="boton1">
                                             Ingresar</button>
+                                    
 
                                         <button onClick={() => { registro() }} type="button"
                                             className="btn col-4" id="boton2">Registrarse</button>
