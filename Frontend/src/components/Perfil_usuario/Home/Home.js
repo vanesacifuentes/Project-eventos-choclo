@@ -1,5 +1,4 @@
 import React from 'react';
-import Slider from './Slider'
 import Slider2 from './Slider2'
 import Card_inicio from './Card_inicio'
 import Menu from '../Menu/Menu'

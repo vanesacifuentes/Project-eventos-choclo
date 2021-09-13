@@ -1,17 +1,17 @@
-import Home from './components/Home/Home';
-import Eventos from './components/Eventos/Eventos'
-import Contacto from './components/Contacto/Contacto'
-import Register_User from './components/Registro/register_user';
-import LoginUser from './components/Login/login-user';
-import Boleteria from './components/Boleteria/Boleteria';
-import Compra_boleta from './components/Boleteria/Compra_boleta';
+import Home from './components//Perfil_usuario/Home/Home';
+import Eventos from './components//Perfil_usuario/Eventos/Eventos'
+import Contacto from './components//Perfil_usuario/Contacto/Contacto'
+import Register_User from './components//Perfil_usuario/Registro/register_user';
+import LoginUser from './components//Perfil_usuario/Login/login-user';
+import Boleteria from './components/Perfil_usuario/Boleteria/Boleteria';
+import Compra_boleta from './components/Perfil_usuario/Boleteria/Compra_boleta';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
-import Compra_boletas from './components/Boleteria/Compra_boleta';
+
 import { useState } from 'react';
 
 

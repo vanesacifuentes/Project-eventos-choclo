@@ -1,7 +1,7 @@
 import React from 'react';
 import Menu from '../Menu/Menu'
 import Footer from '../Footer/footer'
-import Card_eventos2 from '../Eventos/Card_eventos2'
+import Card_eventos2 from './Card_eventos2'
 
 
 
