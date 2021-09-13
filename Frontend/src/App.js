@@ -18,12 +18,13 @@ import { useState } from 'react';
 
 function App() {
 
-  const [user,setUser]= useState()
+  const [user,setUser]= useState(null)
 
 
   async function userF(u){
-    alert(u.nombre)
+    //alert(u.nombre)
     setUser(u);
+    
   }
 
 
@@ -33,7 +34,7 @@ function App() {
               <div>
                 <Switch>
 
-                  <Route exact path='/'> <Home user={user}/> </Route>
+                  <Route exact path='/' > <Home user={user} /> </Route>
                   <Route exact path='/eventos' component={Eventos}/>
                   <Route exact path='/contacto' component={Contacto}/>
                   <Route exact path='/loginuser'> <LoginUser userF={userF} /> </Route>

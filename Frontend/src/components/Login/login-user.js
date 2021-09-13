@@ -3,11 +3,14 @@ import "./login-user.css"
 
 
 import {
-    Link
+    Link,useHistory
 } from 'react-router-dom'
 
 
+
+
 function LoginUser({userF}) {
+    const history = useHistory();
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
@@ -66,13 +69,15 @@ function LoginUser({userF}) {
                     }
 
                 });
+
+              history.location('/')
              
-                
+              //window.location = "./";
 
                 userF(await response.json())
                 
                 
-               setTimeout(()=> window.location.href = "./",2000)
+                
 
             } catch (error) {
                 alert("Ingreso no permitido")
