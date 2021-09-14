@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./login-user.css"
 
 
 import {
     Link,useHistory
 } from 'react-router-dom'
+import Context from '../Context/Context';
 
 
 
 
-function LoginUser({userF}) {
+function LoginUser() {
     const history = useHistory();
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [validPass, setValidPass] = useState('');
     const [validUser, setValidUser] = useState('');
+
+    const {usuario,userF} = useContext(Context)
 
 
     function registro() {
@@ -70,11 +73,10 @@ function LoginUser({userF}) {
 
                 });
 
-              history.location('/')
+              history.push('/')
              
-              //window.location = "./";
-
-                userF(await response.json())
+                //window.location = "./"
+                setTimeout(userF(await response.json()),5000);
                 
                 
                 
@@ -98,6 +100,7 @@ function LoginUser({userF}) {
         <>
 
             <div className="container-fluid ">
+                <h1>{usuario.nombre}</h1>
 
                 <div className=" d-flex justify-content-center align-items-center ">
                     <Link to="/">
