@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./login-user.css"
+import {Redirect} from 'react-router'
 
 
 import {
@@ -61,20 +62,20 @@ function LoginUser({userF}) {
             }
 
             try {
-                const response = await fetch('http://localhost:5000', {
+                /*const response = await fetch('http://localhost:5000', {
                     method: 'POST',
                     body: JSON.stringify(datos),
                     headers: {
                         'Content-Type': 'application/json'
                     }
 
-                });
+                });*/
 
-              history.location('/')
+              //history.location('/')
              
               //window.location = "./";
-
-                userF(await response.json())
+                <Redirect to= "/"/>
+                userF('aajaaj')
                 
                 
                 
