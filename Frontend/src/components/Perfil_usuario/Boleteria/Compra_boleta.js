@@ -49,7 +49,9 @@ function Compra_boleta(){
                         </div>
                         <div className= "row g-0">
 
+                            
                             <p>knjnjkjjjjjjjjjjjjjj</p>
+                            <p>Formulario y tabla para compra</p>
 
                         </div>
                     </div>
