@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { createContext, useContext } from 'react';
 import './Menu.css'
 
 import {
     Link
   } from 'react-router-dom'
+import Context from '../Context/Context';
 
 
 function Menu() {
+
+
+    const contexto, { usuario, userF } = useContext(Context)
+
+    function handleClick(e){
+        switch(e.target.name){
+            case 'inicio_fin_sesion'  : usuario.setUser({});
+
+
+        }
+
+    }
+
+
 
     return (
         <>
@@ -43,20 +58,20 @@ function Menu() {
                                 role="button" 
                                 data-bs-toggle="dropdown" 
                                 aria-expanded="false">
-                                    Login
+                                   {usuario.nombre_usuario ? 'logout' : 'login' } 
                                 </a>
 
                                 
 
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <Link to="/loginuser"
-                                        className="dropdown-item" >Iniciar Sesión
+                                        <Link onClick={} to={"/loginuser"}
+                                        name='inicio_fin_sesion' className="dropdown-item" >{usuario.nombre_usuario ? 'Cerrar sesiòn' : "iniciar sesiòn"}
                                         </Link>
                                         </li>
                                     <li>
                                         <Link to="/registeruser"
-                                        className="dropdown-item" >Registrarme
+                                        className="dropdown-item" >{usuario.nombre_usuario ? '' : "Registrarme"}
                                         </Link>
                                     </li>
                                 </ul>

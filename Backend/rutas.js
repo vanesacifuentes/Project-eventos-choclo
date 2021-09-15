@@ -1,75 +1,47 @@
 const router = require('express').Router()
 const { response } = require('express');
-const {Pool} = require('pg');
+const { Pool } = require('pg');
 
 
 const pool = new Pool({
     host: 'localhost',
-    password:'ADMIN',
-    user:'postgres',
+    password: 'admin',
+    user: 'postgres',
     port: '5432',
     database: 'eventos-choclo'
 
 });
 
 
-let objeto = {
-    nombre:'vane'
-
-}
 
 
-const getUser = async (req, res)=>{
+//////////////////////////////////////////////////////////////////////////////////////
+const getUser = async (req, res) => {
 
+    const response = await pool.query("SELECT * FROM usuario WHERE username = $1 and contrasena = $2", [req.body.username, req.body.pass]);
 
-    try {
-
-        const response= await pool.query("SELECT * FROM login WHERE username = $1",[req.body.name]);
-
-        //console.log(req.body.name)
-     
-        //console.log(response.rows[0])
-
-        
-
-        if(response.rows[0] === undefined){
-
-            res.json(JSON.stringify({}))
-              
-
-        }else{
-            res.json(JSON.stringify(response.rows[0])) 
-        }
-
-        
-    } catch  {
-        
+    if (response.rows[0] === undefined) {
         res.json(JSON.stringify({}))
-        
+    } else {
+        res.json(JSON.stringify(response.rows[0]))
     }
 
-
 }
 
 
-
-router.post('/', (req,res)=>{
-    console.log('mnddsnddsam')
-
-    //getUser(req, res);
-
-    res.json(objeto)
-
-
-})
-
-router.post('/registro', (req,res)=>{
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
+router.post('/', (req, res) => {
     getUser(req, res);
-
-    //res.json(objeto)
-
-
 })
+
+router.post('/registro', (req, res) => {
+    getUser(req, res);
+})
+
+
+
+
+
+
 
 module.exports = router
