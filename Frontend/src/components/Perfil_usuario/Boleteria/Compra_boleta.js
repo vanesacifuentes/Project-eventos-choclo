@@ -52,6 +52,7 @@ function Compra_boleta(){
                             
                            
                             <p className= "h1">Formulario y tabla para compra</p>
+                            <p>Pruebas</p>
 
                         </div>
                     </div>
