@@ -10,7 +10,7 @@ import Context from '../Context/Context';
 function Menu() {
 
 
-    const contexto, { usuario, userF } = useContext(Context)
+    const { usuario, userF } = useContext(Context)
 
     function handleClick(e){
         switch(e.target.name){
@@ -65,8 +65,8 @@ function Menu() {
 
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <Link onClick={} to={"/loginuser"}
-                                        name='inicio_fin_sesion' className="dropdown-item" >{usuario.nombre_usuario ? 'Cerrar sesiòn' : "iniciar sesiòn"}
+                                        <Link onClick={()=>{}} to={"/loginuser"}
+                                        name='inicio_fin_sesion' className="dropdown-item" >{usuario.nombre_usuario ? 'Cerrar sesiòn' : "Iniciar sesión"}
                                         </Link>
                                         </li>
                                     <li>
