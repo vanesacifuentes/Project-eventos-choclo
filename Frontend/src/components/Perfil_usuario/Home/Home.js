@@ -22,7 +22,7 @@ function Home(){
                 <Slider2 /> 
                 <hr className="featurette-divider" />
                 <Card_inicio /> 
-                <h1>{usuario.nombre}</h1>
+                <h1>{usuario.nombre_usuario}</h1>
 
                 
                 

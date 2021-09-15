@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react';
 import "./login-user.css"
-import {Redirect} from 'react-router'
 
 
 import {
-    Link,useHistory
+    Link, useHistory
 } from 'react-router-dom'
 import Context from '../Context/Context';
 
@@ -16,10 +15,12 @@ function LoginUser() {
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
+
+
     const [validPass, setValidPass] = useState('');
     const [validUser, setValidUser] = useState('');
 
-    const {usuario,userF} = useContext(Context)
+    const { usuario, userF } = useContext(Context)
 
 
     function registro() {
@@ -27,73 +28,89 @@ function LoginUser() {
         window.location.href = "./registeruser"
     }
 
-
+    ///////////////////////////////////////////////////////////
     function handleChange(name, value) {
         if (name === "usuario") {
             setUser(value)
         } else {
-            setPassword(value)
+            if (name === "password") {
+                setPassword(value)
+            }
         }
     };
 
 
-    function handleSubmit(e) {
-        e.preventDefault()
+    //////////////////////////////////////////////////////////
+    function validarCampos() {
+        let validador = true
         if (user === '') {
             setValidUser('is-invalid')
-        } else {
-            setValidUser('')
+            validador = false
         }
-
         if (password === '') {
             setValidPass('is-invalid')
+            validador = false
+        }
+
+        return validador
+    }
+
+
+
+    //////////////////////////////////////////////////////////
+    function handleSubmit(e) {
+        e.preventDefault()
+        if (validarCampos()) {
+            consultUser()
+        }
+
+    }
+
+
+
+
+
+
+
+    ////////////////////////////////////////////////////////////
+    async function consultUser() {
+
+        var datos = {
+            username: user,
+            pass: password
+        }
+
+
+
+        const response = await fetch('http://localhost:5000', {
+            method: 'POST',
+            body: JSON.stringify(datos),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+
+        //const objUsuarioJson = await JSON.parse(objUsuario)
+        if (await userF(await response.json()) === true) {
+            history.push('/')
         } else {
-            setValidPass('')
+            alert('usuario o contraseña invalidos')
         }
 
-        saveUser();
-    };
 
-    //funcion 
-    async function saveUser() {
 
-        if ((user != '') && (password != '')) {
 
-            var datos = {
-                name: user,
-                pass: password
-            }
 
-            try {
-                /*const response = await fetch('http://localhost:5000', {
-                    method: 'POST',
-                    body: JSON.stringify(datos),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
 
-                });*/
 
-              history.push('/')
-             
-                //window.location = "./"
-                setTimeout(userF(await response.json()),5000);
-                
-                
-                
 
-            } catch (error) {
-                alert("Ingreso no permitido")
-            }
-
-        }
     }
 
 
 
     ///VARIABLE 
-    var classNamePass = `form-control  ${validPass}`
-    var classNameUser = `form-control  ${validUser}`
+
 
 
 
@@ -101,7 +118,7 @@ function LoginUser() {
         <>
 
             <div className="container-fluid ">
-                <h1>{usuario.nombre}</h1>
+                <h1>{usuario.nombre_usuario}</h1>
 
                 <div className=" d-flex justify-content-center align-items-center ">
                     <Link to="/">
@@ -125,9 +142,9 @@ function LoginUser() {
 
                                         <input
                                             id="usuario"
-                                            name="usuario"
+                                            name="usuario" c
                                             type="text"
-                                            className={classNameUser}
+                                            className={validUser}
                                             placeholder="Usuario"
                                             onChange={(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
@@ -141,7 +158,7 @@ function LoginUser() {
                                             id="password"
                                             name="password"
                                             type="password"
-                                            className={classNamePass}
+                                            className={validPass}
                                             placeholder="Contraseña"
                                             onChange={(e) => handleChange(e.target.name, e.target.value)}>
                                         </input>
@@ -153,11 +170,11 @@ function LoginUser() {
                                     <div className="row justify-content-center align-items-center mt-3 mb-3">
 
 
-                                    
+
                                         <button type="submit"
                                             className="btn col-3 mx-3" id="boton1">
                                             Ingresar</button>
-                                    
+
 
                                         <button onClick={() => { registro() }} type="button"
                                             className="btn col-4" id="boton2">Registrarse</button>
