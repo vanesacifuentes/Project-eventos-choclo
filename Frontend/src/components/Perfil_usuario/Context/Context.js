@@ -13,7 +13,7 @@ const Context = createContext();
 const UserProvider = ({ children }) => {
 
 
-  const [usuario, setUser] = useState({   })
+  const [usuario, setUser] = useState({ cedula : 1})
 
 
   async function userF(u) {

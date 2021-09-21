@@ -18,7 +18,7 @@ import {
 
 
 
-function App() {
+function App({inicio = <Home />}) {
 
   
 
@@ -30,7 +30,7 @@ function App() {
               <div>
                 <Switch>
 
-                  <Route exact path='/' > <Home /> </Route>
+                  <Route exact path='/' > {inicio} </Route>
                   <Route exact path='/eventos' component={Eventos}/>
                   <Route exact path='/contacto' component={Contacto}/>
                   <Route exact path='/loginuser'> <LoginUser  /> </Route>
