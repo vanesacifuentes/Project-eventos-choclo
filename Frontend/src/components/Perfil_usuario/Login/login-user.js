@@ -20,7 +20,8 @@ function LoginUser() {
     const [validPass, setValidPass] = useState('');
     const [validUser, setValidUser] = useState('');
 
-    const { usuario, userF } = useContext(Context)
+    const { usuario, userF } = useContext(Context);
+
 
 
     function registro() {
@@ -31,6 +32,7 @@ function LoginUser() {
     ///////////////////////////////////////////////////////////
     function handleChange(name, value) {
         if (name === "usuario") {
+            console.log(value)
             setUser(value)
         } else {
             if (name === "password") {
@@ -46,18 +48,21 @@ function LoginUser() {
         if (user === '') {
             setValidUser('is-invalid')
             validador = false
-        }
+        }else setValidUser('')
+        
         if (password === '') {
             setValidPass('is-invalid')
             validador = false
-        }
+        }else setValidPass('')
 
         return validador
+
+
     }
 
 
 
-    //////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
     function handleSubmit(e) {
         e.preventDefault()
         if (validarCampos()) {
@@ -80,20 +85,42 @@ function LoginUser() {
             pass: password
         }
 
-        const response = await fetch('http://localhost:5000', {
-            method: 'POST',
-            body: JSON.stringify(datos),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        try {
 
-        if (await userF(await response.json())) {
-            history.push('/')
-        } else {
-            alert('usuario o contraseña invalidos')
-        }
+            const response = await fetch('http://localhost:5000', {
+                method: 'POST',
+                body: JSON.stringify(datos),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+
+            //const objUsuarioJson = await JSON.parse(objUsuario)
+            if (await userF(await response.json()) === true) {
+                history.push('/')
+            } else {
+                alert('usuario o contraseña invalidos')
+            }
+        }catch{alert('No se encontro servidor de base de datos')}
+
+
+
+
+
+
+
+
     }
+
+
+    //const nombreUsuario = 'Prueba';
+    //localStorage.setItem('nombreDeUsuario', nombreUsuario);
+
+    //const nombreLocalStorage = localStorage.getItem('nombreDeUsuario');
+    //console.log(nombreLocalStorage);
+
+    //localStorage.removeItem()
 
 
 
@@ -110,7 +137,7 @@ function LoginUser() {
 
                 <div className=" d-flex justify-content-center align-items-center ">
                     <Link to="/">
-                        <h1>Imagen eventos choclo</h1>
+                        <h1>{usuario.cedula}</h1>
 
                     </Link>
                 </div>
@@ -130,7 +157,7 @@ function LoginUser() {
 
                                         <input
                                             id="usuario"
-                                            name="usuario" c
+                                            name="usuario" 
                                             type="text"
                                             className={validUser}
                                             placeholder="Usuario"

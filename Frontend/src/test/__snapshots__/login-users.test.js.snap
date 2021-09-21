@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas sobre el componente Login usuario Verificar mensajes de error en input usuario 1`] = `
+<div>
+  Array [
+    " ",
+    <div
+      className="container-fluid "
+    >
+      <h1 />
+      <div
+        className=" d-flex justify-content-center align-items-center "
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          <h1>
+            1
+          </h1>
+        </a>
+      </div>
+      <div
+        className="modal-dialog text-center mt-1"
+      >
+        <div
+          className="col-sm-9 main-section"
+        >
+          <div
+            className="modal-content"
+          >
+            <div
+              className="col-12 user-img"
+            >
+              <i
+                className="mt-2 fas fa-users fa-6x"
+                style={
+                  Object {
+                    "color": "#ffff",
+                  }
+                }
+              />
+              <h3
+                className="h3 mb-2"
+              >
+                ¡Bienvenido!
+              </h3>
+              <h6
+                className="h6 mb-3 align-items-start"
+              >
+                Por favor autentíquese para ingresar
+              </h6>
+              <form
+                onSubmit={[Function]}
+              >
+                <div
+                  className="form-group "
+                  id="#user-group"
+                >
+                  <label>
+                    Usuario
+                  </label>
+                  <input
+                    className=""
+                    id="usuario"
+                    name="usuario"
+                    onChange={[Function]}
+                    placeholder="Usuario"
+                    type="text"
+                  />
+                  <div
+                    className="h5 mb-2 invalid-feedback"
+                  >
+                    Ingrese el usuario
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                  id="contrasena-group"
+                >
+                  <label>
+                    Contraseña
+                  </label>
+                  <input
+                    className=""
+                    id="password"
+                    name="password"
+                    onChange={[Function]}
+                    placeholder="Contraseña"
+                    type="password"
+                  />
+                  <div
+                    className="h5 mb-2 invalid-feedback"
+                  >
+                    Ingrese la contraseña
+                  </div>
+                </div>
+                <div
+                  className="row justify-content-center align-items-center mt-3 mb-3"
+                >
+                  <button
+                    className="btn col-3 mx-3"
+                    id="boton1"
+                    type="submit"
+                  >
+                    Ingresar
+                  </button>
+                  <button
+                    className="btn col-4"
+                    id="boton2"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Registrarse
+                  </button>
+                </div>
+                <h6
+                  className=" h6 "
+                >
+                  ¿Olvidó su contraseña?
+                </h6>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>,
+    " ",
+  ]
+</div>
+`;
