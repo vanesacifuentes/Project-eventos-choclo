@@ -66,6 +66,7 @@ function Menu() {
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
                                         <Link onClick={()=>{}} to={"/loginuser"}
+                                        id='botonLogin'
                                         name='inicio_fin_sesion' className="dropdown-item" >{usuario.nombre_usuario ? 'Cerrar sesiòn' : "Iniciar sesión"}
                                         </Link>
                                         </li>

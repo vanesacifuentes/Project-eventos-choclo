@@ -21,7 +21,7 @@ function Register_User() {
     const [validUserName, setValidUserName] = useState('');
 
 
-
+////////////////////////777
 
 
     /*function crearUsuario(){
@@ -53,6 +53,7 @@ function Register_User() {
 
     function validarCampos() {
         let validador = true
+        console.log('dskdsjdksd')
         if (name === '') {
             setValidName('is-invalid')
             validador = false

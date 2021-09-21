@@ -80,8 +80,6 @@ function LoginUser() {
             pass: password
         }
 
-
-
         const response = await fetch('http://localhost:5000', {
             method: 'POST',
             body: JSON.stringify(datos),
@@ -90,21 +88,11 @@ function LoginUser() {
             }
         })
 
-
-        //const objUsuarioJson = await JSON.parse(objUsuario)
-        if (await userF(await response.json()) === true) {
+        if (await userF(await response.json())) {
             history.push('/')
         } else {
             alert('usuario o contraseña invalidos')
         }
-
-
-
-
-
-
-
-
     }
 
 
