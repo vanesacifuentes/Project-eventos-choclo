@@ -1,0 +1,14 @@
+#navbar_admin{
+    display: flex;
+    justify-content: center;
+    background: #257973;
+   
+}
+
+.btn{
+    background-color: #558F77;
+    color: #ffff;
+}
+
+
+

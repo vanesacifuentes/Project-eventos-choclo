@@ -11,5 +11,4 @@ deploy:
   provider: heroku
   api_key: $APIKEYHEROKU
   app: project-eventos-choclo
-
   

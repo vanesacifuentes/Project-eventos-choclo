@@ -5,7 +5,8 @@ container-fluid{
 .navbar{
     background-color: #239089;
     font-family: 'RocknRoll One', sans-serif;
-    
+    display: flex;
+    height: 100px;
 }
 
 .navbar-brand{
