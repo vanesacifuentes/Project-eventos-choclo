@@ -31,7 +31,7 @@ describe('Pruebas sobre el componente Login usuario', () => {
             <App inicio={<LoginUser/>}/>
         </UserProvider>
        
-
+ 
         
     )
 

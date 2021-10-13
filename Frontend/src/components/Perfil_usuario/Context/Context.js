@@ -13,26 +13,27 @@ const Context = createContext();
 const UserProvider = ({ children }) => {
 
 
-  const [usuario, setUser] = useState({ cedula : 1})
+  let stringUsuario = localStorage.getItem('usuario')
+
+  const [usuario, setUser] = useState(stringUsuario && JSON.parse(stringUsuario))
+
+  function isObjetoVacio(obj) {//valida si un objeto esta vacio :: retorna true o false
+    return Object.getOwnPropertyNames(obj).length === 0;
+  }
 
 
   async function userF(u) {
+
     let objUsuario = JSON.parse(u)
 
-    console.log(objUsuario)
-    if (objUsuario.nombre_usuario == undefined) {
-      console.log('sdjsdkj')
+
+    if (isObjetoVacio(objUsuario)) {
       return false
 
     } else {
-      setUser(JSON.parse(u))
-      console.log('sdjsdkj')
+      localStorage.setItem('usuario', JSON.stringify(objUsuario))
       return true
-
     }
-
-
-
   }
 
 

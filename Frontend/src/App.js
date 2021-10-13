@@ -5,20 +5,26 @@ import Register_User from './components//Perfil_usuario/Registro/register_user';
 import LoginUser from './components//Perfil_usuario/Login/login-user';
 import Boleteria from './components/Perfil_usuario/Boleteria/Boleteria';
 import Compra_boleta from './components/Perfil_usuario/Boleteria/Compra_boleta';
-
-
+import Context from './components/Perfil_usuario/Context/Context';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
+import { useContext } from 'react';
+
+
+
+
 
 
 
 
 
 function App({inicio = <Home />}) {
+
+  const {usuario} = useContext(Context)
 
   
 
@@ -31,12 +37,12 @@ function App({inicio = <Home />}) {
                 <Switch>
 
                   <Route exact path='/' > {inicio} </Route>
-                  <Route exact path='/eventos' component={Eventos}/>
-                  <Route exact path='/contacto' component={Contacto}/>
-                  <Route exact path='/loginuser'> <LoginUser  /> </Route>
-                  <Route exact path='/registeruser' component={Register_User}/>
-                  <Route exact path='/boleteria' component={Boleteria}/>
-                  <Route exact path='/compra_boleta' component={Compra_boleta}/>
+                  <Route exact path='/eventos' > <Eventos /> </Route>
+                  <Route exact path='/contacto' > <Contacto /> </Route>
+                  <Route exact path='/loginuser'>  <LoginUser  /></Route>
+                  <Route exact path='/registeruser'> <Register_User /> </Route>
+                  <Route exact path='/boleteria'> <Boleteria /> </Route>
+                  <Route exact path='/compra_boleta'> <Compra_boleta /> </Route>
 
                 </Switch>
               </div>
