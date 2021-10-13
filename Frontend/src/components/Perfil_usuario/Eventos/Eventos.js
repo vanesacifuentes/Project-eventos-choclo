@@ -15,7 +15,7 @@ function Eventos(){
             <div className="container">
 
                 <hr></hr>
-                <h6>Eventos</h6>
+                <h6>cd</h6>
             <Card_eventos2/>
 
             </div>

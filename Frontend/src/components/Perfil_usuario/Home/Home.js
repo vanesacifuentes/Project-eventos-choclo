@@ -8,6 +8,7 @@ import Context from '../Context/Context.js';
 
 function Home(){
 
+   
 
     const {usuario} = useContext(Context)
     return(
@@ -23,11 +24,7 @@ function Home(){
                 <Slider2 /> 
                 <hr className="featurette-divider" />
                 <Card_inicio /> 
-                <h1>{usuario.nombre_usuario}</h1>
-
-                
-                
-
+                <h1>{usuario && usuario.nombre_usuario}</h1>
             </div>
 
             <Footer/>
