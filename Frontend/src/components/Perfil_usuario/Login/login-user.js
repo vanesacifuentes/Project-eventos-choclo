@@ -44,6 +44,7 @@ function LoginUser() {
 
     //////////////////////////////////////////////////////////
     function validarCampos() {
+
         let validador = true
         if (user === '') {
             setValidUser('is-invalid')
@@ -56,8 +57,6 @@ function LoginUser() {
         }else setValidPass('')
 
         return validador
-
-
     }
 
 
@@ -95,49 +94,32 @@ function LoginUser() {
                 }
             })
 
-
-            //const objUsuarioJson = await JSON.parse(objUsuario)
             if (await userF(await response.json()) === true) {
-                history.push('/')
+                window.location = '/'
             } else {
                 alert('usuario o contraseña invalidos')
             }
         }catch{alert('No se encontro servidor de base de datos')}
 
-
-
-
-
-
-
-
     }
 
 
-    //const nombreUsuario = 'Prueba';
-    //localStorage.setItem('nombreDeUsuario', nombreUsuario);
-
-    //const nombreLocalStorage = localStorage.getItem('nombreDeUsuario');
-    //console.log(nombreLocalStorage);
-
-    //localStorage.removeItem()
-
-
-
-    ///VARIABLE 
 
 
 
 
+
+    
+/////////////////////////////////////////////////////////////////////////////////////////
     return (
         <>
 
             <div className="container-fluid ">
-                <h1>{usuario.nombre_usuario}</h1>
+                
 
                 <div className=" d-flex justify-content-center align-items-center ">
                     <Link to="/">
-                        <h1>{usuario.cedula}</h1>
+
 
                     </Link>
                 </div>

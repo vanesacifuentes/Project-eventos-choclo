@@ -2,21 +2,37 @@ import React, { createContext, useContext } from 'react';
 import './Menu.css'
 
 import {
-    Link
+    Link, Redirect
 } from 'react-router-dom'
 import Context from '../Context/Context';
+import LoginUser from '../Login/login-user';
 
 
 function Menu() {
 
+    function cerrarSesion() {
+        
+        localStorage.removeItem('usuario')
+        window.location = './'
+    }
+
+    function iniciarSesion() {
+        
+        //localStorage.removeItem('usuario')
+        window.location = './loginuser'
+    }
+
+
 
     const { usuario, userF } = useContext(Context)
-    
-    function handleClick(e) {
-        alert(e);
-        switch (e.target.name) {
-            case 'inicio_fin_sesion': userF({})
 
+    function handleClick(e) {
+        alert(e.target.name);
+        switch (e.target.name) {
+            case 'fin_sesion': cerrarSesion()
+                    break;
+            case 'inicio_sesion' : iniciarSesion()
+                    break;
 
         }
 
@@ -59,20 +75,23 @@ function Menu() {
                                     role="button"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    {usuario.nombre_usuario ? 'logout' : 'login'}
+                                    {usuario ? 'logout' : 'login'}
                                 </a>
 
 
 
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <Link onClick={(e) => handleClick(e)} to={"/loginuser"}
-                                            name='inicio_fin_sesion' className="dropdown-item" >{usuario.nombre_usuario ? 'Cerrar sesiòn' : "iniciar sesiòn"}
+                                        <Link
+                                            to={``}
+                                            onClick={(e) => handleClick(e)}
+                                            name={usuario ? 'fin_sesion' : 'inicio_sesion'}
+                                            className="dropdown-item" >{usuario ? 'Cerrar sesiòn' : "iniciar sesiòn"}
                                         </Link>
                                     </li>
                                     <li>
                                         <Link to="/registeruser"
-                                            className="dropdown-item" >{usuario.nombre_usuario ? '' : "Registrarme"}
+                                            className="dropdown-item" >{usuario ? '' : "Registrarme"}
                                         </Link>
                                     </li>
                                 </ul>
