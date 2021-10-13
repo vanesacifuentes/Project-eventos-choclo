@@ -4,10 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './components/Perfil_usuario/Context/Context';
+import App_admin from './components/Perfil_administrador/Home/App_admin';
 
 
 ReactDOM.render(
       <UserProvider > <App/> </UserProvider>
+      //<UserProvider > <App_admin/> </UserProvider>
+      
       ,
       document.getElementById('root')
   

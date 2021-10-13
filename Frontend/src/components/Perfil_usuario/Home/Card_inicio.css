@@ -2,4 +2,44 @@
 
     width: 100%;
     height: 300px;
+    box-shadow: 9px 9px 9px #00534E;
+}
+
+.card{
+    text-align: center;
+    text-decoration:blanchedalmond;
+    font-size: 30px;
+    margin: auto;
+    box-shadow: 9px 9px 9px #8bc4c0;
+}
+.card:hover{
+    
+    box-shadow:1px 1px 20px #d2d2d2;
+}
+
+
+.card-header-first{
+    margin-top:-40px;
+    height: 50px;
+	background: linear-gradient(-90deg, #BF019F, #F28A57); 
+	box-shadow: 9px 9px 9px #8bc4c0;
+}
+
+.card-header-second{
+    margin-top:-40px;
+    height: 50px;
+	box-shadow:9px 9px 9px #8bc4c0;
+	background: linear-gradient(-90deg, #8E2DE2, #4A00E0); 
+}
+
+
+.card-header-third{
+    margin-top:-40px;
+    height:auto;
+	box-shadow:9px 9px 9px #8bc4c0;
+    background: linear-gradient(-90deg, #11998e, #38ef7d); 
+}
+
+.card-title{
+    color: blanchedalmond;
 }

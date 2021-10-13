@@ -1,0 +1,27 @@
+.sidebar{
+    
+    background-color: #239089;
+    font-family: 'RocknRoll One', sans-serif;
+    width: auto;
+    height:150vh;
+    border-right: 1px, solid;  
+
+   }
+
+ul{ 
+    margin-top: 25px;
+    list-style: none;
+    padding: 1rem 2rem;
+     
+}
+
+li{
+    font-size: 20px;
+    margin-bottom: 1rem; 
+    
+}
+
+a{
+    text-decoration: none;
+    text-decoration: white;
+}

@@ -17,8 +17,9 @@ function Home(){
  
             <div className="container">
                 
-                <hr></hr>
-                <h1>Inicio</h1>
+                <br/>
+                <br/>
+                <br/><br/>
                 <Slider2 /> 
                 <hr className="featurette-divider" />
                 <Card_inicio /> 
