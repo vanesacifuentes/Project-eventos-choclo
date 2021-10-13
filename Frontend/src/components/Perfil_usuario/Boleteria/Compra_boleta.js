@@ -2,12 +2,30 @@ import React from "react";
 import Menu from "../Menu/Menu";
 import Footer from "../Footer/footer";
 import imagenMusic from '../assets/coldplay.jpg'
+import './Compra_boleta.css'
 
 import {
     Link
 } from 'react-router-dom'
 
 function Compra_boleta(){
+
+    const eventos = [
+
+        {
+            id_evento: "1",
+            categoria_evento: "MUSICA",
+            nombre_evento: "CONCIERTO COLDPLAY",
+            lugar_evento: "Estadio Olimpico Pascual Guerrero",
+            fecha_inicio_evento: "2021/12/28",
+            fecha_fin_evento: "2021/05/31",
+            hora_inicio: "10:00 PM",
+            aforo: "400",
+            precio_boleta: "150000",
+            descripcion_eveto: "Colplay es una banda británica de pop rock y tock alternativo formada en Londres en 1996. Está integrada por Chris Martin, Jon Buckland, Guy Berryman y Will Champion. Es uno de los grupos más relevantes de las décadas de los 2000 y principios de 2010",
+
+        }
+    ]
 
     return(
 
