@@ -3,8 +3,9 @@ node_js:
   - '14'
 dist: trusty
 cache:
-  directories:
+ directories:
     - $HOME/.cache/.npm
+
     - node_modules
 script:
   - npm i -g npm

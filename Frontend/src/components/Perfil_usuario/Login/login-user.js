@@ -94,7 +94,7 @@ function LoginUser() {
                 }
             })
 
-            if (await userF(await response.json()) === true) {
+            if (await userF(await response.json())) {
                 window.location = '/'
             } else {
                 alert('usuario o contraseña invalidos')
