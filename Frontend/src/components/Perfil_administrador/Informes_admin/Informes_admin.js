@@ -1,6 +1,6 @@
 import React from 'react'
 import './Informes.css'
-import { Line } from '@ant-design/charts';
+//import { Line } from '@ant-design/charts';
 
 function Informes_admin() {
 
@@ -103,7 +103,7 @@ function Informes_admin() {
                             </select>
                         </div>
                         <div className="col">
-                            <Line {...configuracion} />
+                            
                         </div>
                     </div>
                 </div>

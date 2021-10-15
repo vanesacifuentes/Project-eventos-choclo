@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Modal_eventos from './Modal_eventos'
 import './Eventos_admin.css'
 import Form_eventos from './Form_eventos';
@@ -10,40 +10,69 @@ function Eventos_admin() {
 
     ///State
     const [stateModal, setModal] = useState(false);
+    const [eventos, setStateEvents] = useState([])
 
-    const handleOpenModal = () => { setModal(!stateModal) };
-    const handleCloseModal = () => setModal(false);
+    useEffect(async () => {
+        await arrayEvents()
+    }, [])
 
 
-    //Temporalmente seria un objeto json 
-    const eventos = [
 
-        {
-            id_evento: "1",
-            categoria_evento: "MUSICA",
-            nombre_evento: "CONCIERTO COLDPLAY",
-            lugar_evento: "Estadio Olimpico Pascual Guerrero",
-            fecha_inicio_evento: "2021/12/28",
-            fecha_fin_evento: "2021/05/31",
-            hora_inicio: "10:00 PM",
-            aforo: "400",
-            precio_boleta: "150000",
-            descripcion_eveto: "Colplay es una banda británica de pop rock y tock alternativo formada en Londres en 1996. Está integrada por Chris Martin, Jon Buckland, Guy Berryman y Will Champion. Es uno de los grupos más relevantes de las décadas de los 2000 y principios de 2010",
 
-        },
-        {
-            id_evento: "2",
-            categoria_evento: "MUSICA",
-            nombre_evento: "CONCIERTO METALLICA",
-            lugar_evento: "Estadio Olimpico Pascual Guerrero",
-            fecha_inicio_evento: "2021/12/28",
-            fecha_fin_evento: "2021/05/31",
-            hora_inicio: "10:00 PM",
-            aforo: "400",
-            precio_boleta: "150000",
-            descripcion_eveto: "descripcion Metallica",
 
-        }]
+
+    function handleOpenModal() {
+        setModal(!stateModal)
+    };
+
+
+    //const handleCloseModal = () => setModal(false);
+
+
+
+
+
+
+    const arrayEvents = async () => {
+        //llena el array de eventos con los datos provenientes de la BD
+        try {
+            const response = await fetch('http://localhost:5000/eventos')
+            const arrayEventos = await response.json()
+            const dataEventos = JSON.parse(arrayEventos)
+            //moveImage(dataEventos)
+            setStateEvents(...eventos, dataEventos)
+
+        } catch { alert('array') }
+    }
+
+
+
+    async function eliminarRegistro(id) {
+
+
+        const result = window.confirm("¿Desea borrar el evento?")
+        if (result) {
+            try {
+
+                const response = await fetch(`http://localhost:5000/eventos/${id}`, {
+                    method: 'DELETE'
+                })
+
+                const arrayEventos = await response.json()
+                const dataEventos = JSON.parse(arrayEventos)  
+                setStateEvents(dataEventos)
+                
+
+                
+
+            } catch { alert('execpcion') }
+
+        }
+
+    }
+
+
+
 
     /////////////////
     const renderEventos = (evento, index) => {
@@ -63,12 +92,16 @@ function Eventos_admin() {
 
                 <td>
 
-                    <button onClick={handleOpenModal} type="button" className="btn-primary rounded mx-2" data-bs-toggle="modal" data-bs-target="#modalEvento">
+                    <button onClick={(e) => { }} type="button" className="btn-primary rounded mx-2" data-bs-toggle="modal" data-bs-target="#modalEvento">
                         <i className="fas fa-edit"
                         ></i>
                     </button>
 
-                    <button onClick={() => alert("¿Desea borrar el evento?")} className="btn-danger rounded" id="button_delete">
+                    <button onClick={() => eliminarRegistro(evento.id_evento)}
+                        className="btn-danger rounded"
+                        id="button_delete"
+                        name='btn_eliminar'>
+
                         <i className=" fas fa-trash-alt"
                         ></i>
                     </button>
@@ -118,9 +151,9 @@ function Eventos_admin() {
                     </tbody>
                 </table>
 
-                <Modal_eventos stateModal={stateModal} handleOpenModal={handleOpenModal}/> 
+                <Modal_eventos stateModal={stateModal} handleOpenModal={handleOpenModal} />
 
-               
+
 
             </div>
 

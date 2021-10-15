@@ -8,8 +8,8 @@ import App_admin from './components/Perfil_administrador/Home/App_admin';
 
 
 ReactDOM.render(
-      <UserProvider > <App/> </UserProvider>
-      //<UserProvider > <App_admin/> </UserProvider>
+      //<UserProvider > <App/> </UserProvider>
+      <UserProvider > <App_admin/> </UserProvider>
       
       ,
       document.getElementById('root')

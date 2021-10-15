@@ -3,7 +3,7 @@ node_js:
   - '12'
 dist: trusty
 cache:
-  directories:
+  directories:o
     - node_modules
 script:
   - npm run test
