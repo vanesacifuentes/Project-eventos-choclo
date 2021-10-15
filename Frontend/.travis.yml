@@ -9,6 +9,6 @@ script:
   - npm run test
 deploy:
   provider: heroku
-  api_key: $APIKEYHEROKU
+  api_key: $APIKEYHEROKUEVENTOS
   app: project-eventos-choclo
   

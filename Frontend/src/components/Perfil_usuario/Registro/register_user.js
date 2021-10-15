@@ -122,7 +122,7 @@ function Register_User() {
 
                 <div className=" d-flex justify-content-center align-items-center ">
                     <Link to="/">
-                        <h1>Imagen eventos choclo</h1>
+                        <h1>Inicio</h1>
 
                     </Link>
                 </div>
