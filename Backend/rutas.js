@@ -48,9 +48,23 @@ const getEvents = async (req, res) => {
     const response = await pool.query("SELECT * FROM EVENTOS")
 
     console.log(response.rows)
-   
+
     res.json(JSON.stringify(response.rows))
 
+
+}
+
+
+const deleteEvents = async (req, res) => {
+
+    console.log('delete++++++++++++++++++++++++++++++++++++++++++')
+    const idEvento = req.params.id_evento
+
+    //console.log(req.params)
+
+    await pool.query("DELETE FROM EVENTOS WHERE ID_EVENTO = $1",[idEvento])
+
+    getEvents(req, res)
 
 }
 
@@ -69,6 +83,10 @@ router.get('/eventos', (req, res) => {
     getEvents(req, res);
 })
 
+
+router.delete('/eventos/:id_evento', (req, res) => {
+    deleteEvents(req, res);
+})
 
 
 
