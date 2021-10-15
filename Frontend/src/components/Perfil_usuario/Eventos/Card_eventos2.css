@@ -1,20 +1,23 @@
-#informacion_compra{
+#proximos_eventos{
     display: block;
     font-size: 16px;
     background-color: #5db3ab;
   
   }
 
-  #compra_boleteria{
+#titulo_evento{
+    height: 30px;
     display: block;
-    font-size: 16px;
+    font-size: 20px;
     background-color: #5db3ab;
   
   }
 
-  #zona_boletas{
+ #escenario{
+    height: 30px;
     display: block;
-    font-size: 16px;
-    background-color: #5db3ab;
+    font-size: 20px;
   
+
+
   }

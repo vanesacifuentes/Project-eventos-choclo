@@ -117,10 +117,9 @@ function LoginUser() {
             <div className="container-fluid ">
                 
 
-                <div className=" d-flex justify-content-center align-items-center ">
+            <div className=" d-flex justify-content-center align-items-center ">
                     <Link to="/">
-
-
+                        <h1>Inicio</h1>
                     </Link>
                 </div>
 

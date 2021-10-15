@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import imagenMusic from '../assets/coldplay.jpg'
 import imagenMusic2 from '../assets/metallica.jpg'
+import './Card_eventos2.css'
 
 
 
@@ -46,8 +47,12 @@ function Card_eventos2() {
 
     return (
         <>
-            <h1 className="pt-5">PRÓXIMOS EVENTOS</h1>
-            <h3 className="text mt-5">Explore nuestros servicios y contenido relacionado</h3>
+            <br/><br/><br/>
+            <div className="p-3 mb-3 text-white rounded" id="proximos_eventos">
+                    <h1>PRÓXIMOS EVENTOS</h1>
+            </div>
+
+            <h3 className="text mt-3">Explore nuestros servicios y contenido relacionado</h3>
             <hr className="featurette-divider" />
 
             {

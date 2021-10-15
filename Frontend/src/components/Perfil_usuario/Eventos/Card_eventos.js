@@ -15,7 +15,7 @@ function Card_eventos({ info }) {
     return (
         <>
             {console.log('vouy')}
-            <div className="card border-dark mb-3">
+            <div className="card border mb-3">
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={info.imagen} className="img-fluid rounded-start" alt="..." />
@@ -29,7 +29,7 @@ function Card_eventos({ info }) {
                             <p className="card-text h4">Precio: ${info.precio_boleta} COP</p>
                         </div>
                         <Link to="/boleteria">
-                            <button type="submit" className="btn col-11 text-center mx-3" id="boton1">Ver más...</button>
+                            <button type="submit" className="btn col-11 text-center mx-3 mb-3" id="boton1">Ver más...</button>
                         </Link>
                     </div>
                 </div>
