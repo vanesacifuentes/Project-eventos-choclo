@@ -23,6 +23,7 @@ import { useContext } from 'react';
 
 
 
+
 function App({inicio = <Home />}) {
 
   const {usuario} = useContext(Context)
@@ -38,12 +39,14 @@ function App({inicio = <Home />}) {
                 <Switch>
 
                   <Route exact path='/' > {inicio} </Route>
+
                   <Route exact path='/eventos' > <Eventos /> </Route>
                   <Route exact path='/contacto' > <Contacto /> </Route>
                   <Route exact path='/loginuser'>  <LoginUser  /></Route>
                   <Route exact path='/registeruser'> <Register_User /> </Route>
                   <Route exact path='/boleteria'> <Boleteria /> </Route>
-                  <Route exact path='/compra_boleta'> <Compra_boleta /> </Route>
+                  <Route exact path='/compra_boleta'> <Compra_boleta /> </Route>              
+
 
                 </Switch>
               </div>

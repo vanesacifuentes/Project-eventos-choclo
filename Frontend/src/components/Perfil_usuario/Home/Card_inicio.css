@@ -27,7 +27,7 @@
 
 .card-header-second{
     margin-top:-40px;
-    height: 50px;
+    height: 55px;
 	box-shadow:9px 9px 9px #8bc4c0;
 	background: linear-gradient(-90deg, #8E2DE2, #4A00E0); 
 }
@@ -40,6 +40,6 @@
     background: linear-gradient(-90deg, #11998e, #38ef7d); 
 }
 
-.card-title{
+.card-title1{
     color: blanchedalmond;
 }

@@ -1,11 +1,17 @@
 language: node_js
 node_js:
-  - '12'
+  - '14'
 dist: trusty
 cache:
-  directories:
+ directories:
+    - $HOME/.cache/.npm
+
     - node_modules
 script:
+  - npm i -g npm
+  - nvm install v14.15.5
+  - npm install
+  - npm i -g jest-cli@26.6.3
   - npm run test
 deploy:
   provider: heroku

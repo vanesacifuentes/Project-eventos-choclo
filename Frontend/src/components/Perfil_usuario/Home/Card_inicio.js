@@ -2,7 +2,6 @@ import React from 'react'
 import ImagenMusic from '../assets/music.jpg'
 import ImagenCulture from '../assets/cultura.jpg'
 import ImagenDeporte from '../assets/deporte.jpg'
-
 import './Card_inicio.css'
 
 import {
@@ -23,7 +22,7 @@ function Card_inicio() {
                         <div className="card-header-first rounded">
                             <h5>
                                 <Link to="/eventos"
-                                    className="card-title h2">MÚSICA
+                                    className="card-title1 h2">MÚSICA
                                 </Link>
                             </h5>
                             <img src={ImagenMusic}
@@ -40,7 +39,7 @@ function Card_inicio() {
                         <div className="card-header-second rounded">
                             <h5>
                                 <Link to="/eventos"
-                                    className="card-title h2">CULTURA
+                                    className="card-title1 h2">CULTURA
                                 </Link>
                             </h5>
                             <img src={ImagenCulture} class="card-img-top" alt="..." />
@@ -56,7 +55,7 @@ function Card_inicio() {
                         <div className="card-header-third rounded">
                             <h5>
                                 <Link to="/eventos"
-                                    className="card-title h2">DEPORTES
+                                    className="card-title1 h2">DEPORTES
                                 </Link>
                             </h5>
                             </div>

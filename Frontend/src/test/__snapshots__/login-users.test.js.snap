@@ -7,7 +7,6 @@ exports[`Pruebas sobre el componente Login usuario Verificar mensajes de error e
     <div
       className="container-fluid "
     >
-      <h1 />
       <div
         className=" d-flex justify-content-center align-items-center "
       >
@@ -16,7 +15,7 @@ exports[`Pruebas sobre el componente Login usuario Verificar mensajes de error e
           onClick={[Function]}
         >
           <h1>
-            1
+            Inicio
           </h1>
         </a>
       </div>
