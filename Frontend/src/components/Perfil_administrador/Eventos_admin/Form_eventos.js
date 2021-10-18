@@ -5,25 +5,148 @@ import './Form_evento.css'
 
 function Form_eventos() {
 
-    //State para la fecha DatePicker inicial y final
-
-    const [selectedDateinicial, setselectedDateinicial] = useState(null)
-    const [selectedDatefinal, setselectedDatefinal] = useState(null)
 
 
-    const [nombreEvento, setNombreEvento] = useState('');
+
+
+
+    const [nombreEvento, setNombreEvento] = useState('')
     const [lugarEvento, setLugarEvento] = useState('');
     const [categoria, setCategoria] = useState('');
     const [aforoEvento, setAforoEvento] = useState(0);
     const [precioEvento, setPrecioEvento] = useState(0);
     const [horaEvento, setHoraEvento] = useState('');
+    const [fechaInicio, setFechaInicio] = useState()
+    const [fechaFin, setFechaFin] = useState()
+    const [imagen, setImagen] = useState('')
+    const [descripcion, setDescripcion] = useState('')
 
 
 
 
-    function crearEvento(e) {
+
+
+
+    const [validNombreEvento, setValidNombreEvento] = useState('');
+    const [validLugar, setValidLugar] = useState('');
+    const [validCategoria, setValidCategoria] = useState('');
+    const [validAforo, setValidAforo] = useState('');
+    const [validPrecio, setValidPrecio] = useState('');
+    const [validHora, setValidHora] = useState('');
+    const [validFechaInicio, setValidFechaInicio] = useState('')
+    const [validFechaFin, setValidFechaFin] = useState('')
+    const [validimagen, setValidImagen] = useState('')
+
+    const [validDescripcion, setValidDescripcion] = useState('')
+
+
+
+    function validarCampos() {
+        let validador = true
+
+        if (nombreEvento === '') {
+            setValidNombreEvento('is-invalid')
+            validador = false
+        } else setValidNombreEvento('')
+        if (lugarEvento === '') {
+            setValidLugar('is-invalid')
+            validador = false
+        } else setValidLugar('')
+        if (categoria === '') {
+            setValidCategoria('is-invalid')
+            validador = false
+        } else setValidCategoria('')
+        if (aforoEvento === 0) {
+            setValidAforo('is-invalid')
+            validador = false
+        } else setValidAforo('')
+        if (precioEvento === 0) {
+            setValidPrecio('is-invalid')
+            validador = false
+        } else setValidPrecio('')
+        if (horaEvento === '') {
+            setValidHora('is-invalid')
+            validador = false
+        } else setValidHora('')
+        if (fechaInicio === undefined) {
+            setValidFechaInicio('is-invalid')
+            validador = false
+        } else setValidFechaInicio('')
+        if (fechaFin === undefined) {
+            setValidFechaFin('is-invalid')
+            validador = false
+        } else setValidFechaFin('')
+        if (imagen === '') {
+            setValidImagen('is-invalid')
+            validador = false
+        } else setValidImagen('')
+        if (descripcion === '') {
+            setValidDescripcion('is-invalid')
+            validador = false
+        } else setValidDescripcion('')
+
+        return validador
+    }
+
+
+    function handleSubmit(e) {
         e.preventDefault()
-        console.log(selectedDateinicial)
+        if (validarCampos()) {
+            crearEvento()
+        }
+
+    }
+
+
+    function verfile() {
+
+
+        console.log(imagen)
+
+        //const url = `../../assets/${file.name}.jpg`
+
+
+
+
+
+    }
+
+
+    async function crearEvento() {
+
+
+
+        var datos = {
+            nombre_evento: nombreEvento,
+            lugar_evento: lugarEvento,
+            categoria_evento: categoria,
+            aforo: aforoEvento,
+            precio_boleta: precioEvento,
+            hora_inicio: horaEvento,
+            fecha_inicio_evento: fechaInicio,
+            fecha_fin_evento: fechaFin,
+            imagen: imagen,
+            descripcion_evento: descripcion
+        }
+
+        const response = await fetch('http://localhost:5000/eventos', {
+            method: 'PUT',
+            body: JSON.stringify(datos),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        )
+        if (response.ok) {
+            alert('Se ha registrado el evento con exito')
+        }
+
+
+
+
+
+
+
 
     }
 
@@ -33,29 +156,25 @@ function Form_eventos() {
             console.log(value)
             setNombreEvento(value)
         } else
-        if (name === "lugar_evento") {
-            setLugarEvento(value)
-        } else
-        if (name === 'select_categoria') {
-            setCategoria(value)
-        }else 
-        if (name === "aforo_evento") {
-            setAforoEvento(value)
-        }else 
-        if (name === "precio_evento") {
-            setPrecioEvento(value)
-        }else
-        if (name === "hora_evento") {
-            setHoraEvento(value)
-        }if (name === 'fecha_inicio') {
-            setHoraEvento(value)
-        }
-        
-        
-        
-        
-        
-        
+            if (name === "lugar_evento") {
+                setLugarEvento(value)
+            } else
+                if (name === 'select_categoria') {
+                    setCategoria(value)
+                } else
+                    if (name === "aforo_evento") {
+                        setAforoEvento(value)
+                    } else
+                        if (name === "precio_evento") {
+                            setPrecioEvento(value)
+                        } else
+                            if (name === "hora_evento") {
+                                setHoraEvento(value)
+                            }else 
+                            if (name === "descripcion_evento") {
+                                setDescripcion(value)
+                            }
+
 
     }
 
@@ -75,16 +194,16 @@ function Form_eventos() {
 
                 <div className="p-3 mb-3 text-white rounded" id="crear">
                     <h1 >CREAR EVENTO</h1>
-                    {typeof(selectedDateinicial)}
+                    {imagen}
                 </div>
 
 
 
-                <div class="row">
-                    <div class="col-8">
+                <div className="row">
+                    <div className="col-8">
 
 
-                        <form onSubmit={(e) => crearEvento(e)} id="formulario_crear">
+                        <form onSubmit={(e) => handleSubmit(e)} id="formulario_crear">
 
                             <div className="form-row" >
 
@@ -93,10 +212,10 @@ function Form_eventos() {
                                     <input type="text"
                                         onChange={(e) => handleChange(e.target.name, e.target.value)}
                                         name="nombre_evento"
-                                        className="form-control"
+                                        className={`${validNombreEvento} form-control`}
                                         placeholder="Nombre evento">
                                     </input>
-
+                                    <div className="mb-3 invalid-feedback">Ingrese La descripción del evento</div>
                                 </div>
                             </div>
 
@@ -108,23 +227,23 @@ function Form_eventos() {
                                     <label className="col-form-label text-dark mr-3" >Lugar evento</label>
                                     <input type="text"
                                         onChange={(e) => handleChange(e.target.name, e.target.value)}
-                                        className="form-control"
+                                        className={`${validLugar}  form-control`}
                                         name="lugar_evento"
                                         placeholder="Lugar evento">
                                     </input>
-
+                                    <div className="mb-3 invalid-feedback">Ingrese el lugar del evento</div>
                                 </div>
                             </div>
 
 
 
-                            <div class="col-8">
+                            <div className="col-8">
                                 <div className="form-row">
 
                                     <div className="mb-3">
                                         <label className="col-form-label text-dark mr-3" >Categoria evento</label>
                                         <select
-                                            className="form-select"
+                                            className={`${validCategoria} form-select`}
                                             aria-label="Default select example"
                                             name='select_categoria'
                                             onChange={(e) => handleChange(e.target.name, e.target.value)}
@@ -134,6 +253,7 @@ function Form_eventos() {
                                             <option value="DEPORTES">DEPORTES</option>
                                             <option value="OTRO">OTRO</option>
                                         </select>
+                                        <div className="mb-3 invalid-feedback">Seleccione la categoria del evento</div>
                                     </div>
                                 </div>
                             </div>
@@ -147,42 +267,45 @@ function Form_eventos() {
                                         <label className="col-form-label text-dark mr-3"> Aforo</label>
                                         <input type="number"
                                             onChange={(e) => handleChange(e.target.name, e.target.value)}
-                                            className="form-control"
+                                            className={`${validAforo} form-control`}
                                             name="aforo_evento"
                                             placeholder="Aforo evento">
                                         </input>
+                                        <div className="mb-3 invalid-feedback">Seleccione el aforo del evento</div>
 
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-8">
+                            <div classNmae="col-8">
                                 <div className="form-row">
 
                                     <div className="mb-3">
                                         <label className="col-form-label text-dark mr-3" >Precio Boleta</label>
                                         <input type="number"
                                             onChange={(e) => handleChange(e.target.name, e.target.value)}
-                                            className="form-control"
+                                            className={`${validPrecio} form-control`}
                                             name="precio_evento"
                                             placeholder="Precio evento">
                                         </input>
+                                        <div className="mb-3 invalid-feedback">Seleccione el precio de la boleta</div>
 
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-8">
+                            <div className="col-8">
                                 <div className="form-row">
 
                                     <div className="mb-3">
                                         <label class="col-form-label text-dark mr-3" >Hora presentación</label>
                                         <input type="time"
                                             onChange={(e) => handleChange(e.target.name, e.target.value)}
-                                            className="form-control"
+                                            className={`${validHora} form-control`}
                                             name="hora_evento"
                                             placeholder="Hora evento">
                                         </input>
+                                        <div className="mb-3 invalid-feedback">Seleccione la hora de inicio del evento</div>
 
                                     </div>
                                 </div>
@@ -192,45 +315,57 @@ function Form_eventos() {
 
 
 
-                            <div class="col-8">
+                            <div className="col-8">
                                 <div className="form-row mr-2">
 
                                     <div className="none">
                                         <label className="col-form-label text-dark mr-3" >Fecha inicio evento</label>
-                                        <DatePicker
-                                            selected={selectedDateinicial}
-                                            name='fecha_inicio'
-                                            onChange={date => setselectedDateinicial(date)}
-                                            dateFormat='dd/MM/yyyy'
-                                            minDate={new Date()}
+                                        <div className={validFechaInicio}>
+                                            <DatePicker
 
-
-                                        />
+                                                selected={fechaInicio}
+                                                name='fecha_inicio'
+                                                onChange={date => setFechaInicio(date)}
+                                                dateFormat='dd/MM/yyyy'
+                                                minDate={new Date()}
+                                            />
+                                        </div>
+                                        <div className="mb-3 invalid-feedback">Seleccione la fecha del evento</div>
 
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-8">
+                            <div className="col-8">
                                 <div className="form-row mr-2">
 
                                     <div className="mb-4">
                                         <label class="col-form-label text-dark mr-3" >Fecha fin evento</label>
-                                        <DatePicker
-                                            selected={selectedDatefinal}
-                                            onChange={date => setselectedDatefinal(date)}
-                                            dateFormat='dd/MM/yyyy'
-                                            minDate={new Date()}
-                                            style={{ border: "solid 1px pink" }}
-                                        />
+                                        <div className={validFechaFin}>
+                                            <DatePicker
+                                                selected={fechaFin}
+                                                name='fecha_fin'
+                                                onChange={date => setFechaFin(date)}
+                                                dateFormat='dd/MM/yyyy'
+                                                minDate={new Date()}
+                                                style={{ border: "solid 1px pink" }}
+                                            />
+                                        </div>
+                                        <div className="mb-3 invalid-feedback">Seleccione la fecha de finalizacion del evento</div>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="form-floating">
                                 <div className="mb-3" >
-                                    <textarea className=" form-control text-dark mr-3" cols="12" rows="5"
-                                        id="descripcion_evento" placeholder="Escriba aquí la descripcion del evento"></textarea>
+                                    <textarea className={`${validDescripcion} form-control text-dark mr-3`}
+                                        cols="12"
+                                        rows="5"
+                                        name="descripcion_evento"
+                                        onChange= {(e)=>handleChange(e.target.name, e.target.value)}
+                                        placeholder="Escriba aquí la descripcion del evento">
+                                    </textarea>
+                                    <div className="mb-3 invalid-feedback">Ingrese una descripción</div>
                                 </div>
                             </div>
                             <div className="d-flex justify-content-end" >
@@ -242,10 +377,16 @@ function Form_eventos() {
                         </form>
 
                     </div>
-                    <div class="col-4"><div class="mb-3">
-                        <label for="formFile" class="form-label text-dark">Imagen del evento</label>
-                        <input class="form-control" type="file" id="formFile"></input>
-                    </div></div>
+                    <div className="col-4">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label text-dark">Imagen del evento</label>
+                            <input onChange={(e) => { setImagen(`../../assets/${e.target.files[0].name}`); }}
+                                className={`${validimagen} form-control`}
+                                name='imagen'
+                                type="file" id="formFile"></input>
+                            <div className="mb-3 invalid-feedback">Seleccione la hora de inicio del evento</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
