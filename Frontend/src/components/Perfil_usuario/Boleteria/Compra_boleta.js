@@ -10,6 +10,8 @@ import swal from 'sweetalert'
 function Compra_boleta() {
 
     const { evento } = useContext(Context);
+
+    //const [eventostate,setEventoState]= useState(evento)
     const [zona_boleteria, setZonaBoleteria] = useState([]);
     const [nombre_asistente, setNombre] = useState('');
     const [cedula_asistente, setCedula] = useState('');
@@ -32,6 +34,8 @@ function Compra_boleta() {
     async function CargarZonaEventos() {
 
 
+
+
         try {
             //console.log('holi', evento)
             const response = await fetch(`http://localhost:5000/eventos/${evento.id_evento}`)
@@ -46,7 +50,7 @@ function Compra_boleta() {
     }
 
     //Seleccionar input-check
-    function handleInputChange(){
+    function handleInputChange() {
         setInputCheck()
 
     }
@@ -75,12 +79,14 @@ function Compra_boleta() {
     const render_zona_evento = (zona) => {
         return (
 
-            <tr key={zona.id_zona}>
+            <tr disabled={true} key={zona.id_zona}>
                 <input className="form-check-input"
                     onChange={handleInputChange}
                     type="checkbox" id="inlineCheckbox1"
-                    value="option1">
+                    value="option1"
+                    checked={zona.id_zona === 3 && true}>
                 </input>
+
                 <td>{zona.nombre_zona}</td>
                 <td>${new Intl.NumberFormat("en-EN").format(zona.precio_boleta)}</td>
 
@@ -88,6 +94,7 @@ function Compra_boleta() {
                     aria-label="select">
                     {listnumber()}
                 </select>
+
 
             </tr>
         );
@@ -242,7 +249,7 @@ function Compra_boleta() {
                                 </div>
 
 
-                                <form className="mb-3">
+                                <form onSubmit={(e) => e.preventDefault()} className="mb-3">
 
                                     <div className="mb-3">
                                         <input type="text"
@@ -277,16 +284,16 @@ function Compra_boleta() {
 
 
                                     <div className="mb-3">
-                                            <select className={validFormaPago} className="form-control"
-                                                id="select_fp"
-                                                aria-label="Default select example">
-                                                <option selected value="1">Forma de pago*</option>
-                                                <option value="2">Efectivo</option>
-                                                <option value="3">Tarjeta de crédito</option>
-                                                <option value="3">PSE</option>
-                                                onChange={(e) => handleChange(e.target.name, e.target.value)}
-                                            </select>
-                                            <div className="mb-3 invalid-feedback">Ingrese la forma de pago</div>                                       
+                                        <select className={validFormaPago} className="form-control"
+                                            id="select_fp"
+                                            aria-label="Default select example">
+                                            <option selected value="1">Forma de pago*</option>
+                                            <option value="2">Efectivo</option>
+                                            <option value="3">Tarjeta de crédito</option>
+                                            <option value="3">PSE</option>
+                                            onChange={(e) => handleChange(e.target.name, e.target.value)}
+                                        </select>
+                                        <div className="mb-3 invalid-feedback">Ingrese la forma de pago</div>
                                     </div>
 
                                     <div className="content-title pt-3">

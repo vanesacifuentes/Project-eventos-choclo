@@ -19,37 +19,38 @@ import {
 
 function App_admin() {
 
-  
+
 
   return (
-    <>   
-            <Router>
-            <Switch>
-              
-            
+    <>
+      <Router>
+        <Switch>
 
-              <div className= "flex"> 
-              
-              
-              <Navbar_admin/>
-                  
-              <div className= "content"> 
-              
-              <Sidebar_admin/>
 
-                  <Route exact={true} path='/admin' component={Eventos_admin}/> 
-                  <Route exact={true} path='/ver_evento' component={Eventos_admin}/>
-                  <Route exact={true} path='/crear_evento' component={Crear_evento}/>
-                  <Route exact={true} path='/informes_admin' component={Informes_admin}/> 
-                  <Route exact={true} path='/usuarios_registrados' component={Usuarios_registrados}/> 
-                                 
-                  </div>  
-              </div>
-              </Switch>
-            </Router>
-          
-      </>
+
+          <div className="flex">
+
+
+            <Navbar_admin />
+
+            <div className="content">
+
+              <Sidebar_admin />
+
+              <Route exact={true} path='/admin' component={Eventos_admin} />
+              <Route exact={true} path='/ver_evento' component={Eventos_admin} />
+              <Route exact={true} path='/crear_evento' component={Crear_evento} />
+              <Route exact={true} path='/informes_admin' component={Informes_admin} />
+              <Route exact={true} path='/usuarios_registrados' component={Usuarios_registrados} />
+
+            </div>
+          </div>
+        </Switch>
+      </Router>
+
+    </>
   );
+  
 }
 
 export default App_admin;
