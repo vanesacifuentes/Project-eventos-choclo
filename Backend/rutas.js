@@ -5,7 +5,7 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
     host: 'localhost',
-    password: 'ADMIN',
+    password: 'admin',
     user: 'postgres',
     port: '5432',
     database: 'eventos-choclo'
@@ -69,6 +69,24 @@ const deleteEvents = async (req, res) => {
 }
 
 
+const createEvents = async(req, res)  => {
+
+   
+    
+
+    const dataquery = Object.values(req.body)
+    console.log(dataquery)
+
+    const response = await pool.query("INSERT INTO EVENTOS" +
+        "(nombre_evento, lugar_evento, categoria_evento, aforo, precio_boleta, hora_inicio, fecha_inicio_evento, fecha_fin_evento, imagen, descripcion_evento)"+ 
+        "VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)",
+        dataquery);
+
+    res.send('user created')
+}
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 router.post('/registro', (req, res) => {
@@ -86,6 +104,11 @@ router.get('/eventos', (req, res) => {
 
 router.delete('/eventos/:id_evento', (req, res) => {
     deleteEvents(req, res);
+})
+
+
+router.put('/eventos', (req, res) => {
+    createEvents(req, res);
 })
 
 
