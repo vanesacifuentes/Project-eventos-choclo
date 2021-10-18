@@ -20,7 +20,7 @@ function LoginUser() {
     const [validPass, setValidPass] = useState('');
     const [validUser, setValidUser] = useState('');
 
-    const { usuario, userF } = useContext(Context);
+    const {setearEstadoApp, estadoApp, userF } = useContext(Context);
 
 
 
@@ -93,9 +93,16 @@ function LoginUser() {
                     'Content-Type': 'application/json'
                 }
             })
+            const data = await response.json()
+            if (await userF(data)) {
+                    
 
-            if (await userF(await response.json())) {
+                    
                 window.location = '/'
+
+                
+                   
+                
             } else {
                 alert('usuario o contraseña invalidos')
             }

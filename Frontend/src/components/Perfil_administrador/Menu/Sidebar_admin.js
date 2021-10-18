@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import './Sidebar.css'
 
+import Context from './../../Perfil_usuario/Context/Context';
 
 import {
     Link
@@ -8,6 +9,9 @@ import {
 
 
 function Sidebar_admin() {
+
+    const {setearEstadoApp } = useContext(Context);
+
     return (
         <>
             <div className="sidebar">
@@ -56,7 +60,9 @@ function Sidebar_admin() {
                     </li>
 
                     <li>
-                        <Link to="/" className="mx-3 text-white">
+                        <Link onClick={()=>setearEstadoApp('user')}
+                                to="/"
+                                className="mx-3 text-white">
                             <i className="me-2 fas fa-share-square"
                                 style={{ color: "#ffff" }}></i>
                             Cerrar sesión
