@@ -227,10 +227,6 @@ function Form_eventos() {
                                 </div>
                             </div>
 
-
-
-
-
                             <div className="form-floating">
                                 <div className="mb-3" >
                                     <textarea className=" form-control text-dark mr-3" cols="12" rows="5"

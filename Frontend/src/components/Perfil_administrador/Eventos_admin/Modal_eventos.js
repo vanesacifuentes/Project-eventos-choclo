@@ -9,8 +9,8 @@ function Modal_eventos({ stateModal, setModal }) {
 
             {stateModal
                 ?   <div className="modal fade" id="modalEvento" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                   <div className="modal-dialog">
-                       <div className="modal-content">
+                   <div className="modal-dialog" id="modal_d">
+                       <div className="modal-content" id="modal_c">
                            <div className="modal-header">
                                <h1 className="modal-title" id="exampleModalLabel">Actualizar evento</h1>
                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

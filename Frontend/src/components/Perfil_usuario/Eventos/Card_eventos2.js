@@ -57,7 +57,7 @@ function Card_eventos2() {
 
             {
                 stateEvents.map(element => 
-                   <Card_eventos info={element}></Card_eventos>
+                   <Card_eventos propEvento={element}></Card_eventos>
                 )
             }
         </>

@@ -75,7 +75,7 @@ function Menu() {
                                     role="button"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    {usuario ? 'Logout' : 'Login'}
+                                    {usuario ? usuario.nombre_usuario : 'Login'}
                                 </a>
 
 
@@ -86,7 +86,7 @@ function Menu() {
                                             to={``}
                                             onClick={(e) => handleClick(e)}
                                             name={usuario ? 'fin_sesion' : 'inicio_sesion'}
-                                            className="dropdown-item" >{usuario ? 'Cerrar sesión' : "Iniciar sesiòn"}
+                                            className="dropdown-item" >{usuario ? 'Cerrar sesión' : "Iniciar sesión"}
                                         </Link>
                                     </li>
                                     <li>

@@ -1,16 +1,16 @@
-/*
-.modal-dialog{
+
+#modal_d{
     background-color: #ffff;
     padding: 0;
     box-shadow: 9px 9px 9px #3f4747;
 }
 
 
-.modal-content{
+#modal_c{
     width: max-content;
     height: max-content;
 
     background-color: #ffff;
     padding: 0;
     box-shadow: 9px 9px 9px #3f4747;
-}*/
+}

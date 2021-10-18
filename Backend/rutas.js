@@ -54,6 +54,22 @@ const getEvents = async (req, res) => {
 
 }
 
+const getEvent = async (req, res) => {
+
+    console.log('getevento')
+
+    const idEvento = req.params.id_evento
+    console.log(idEvento)
+
+    const response = await pool.query("SELECT * FROM ZONA_BOLETERIA WHERE ID_EVENTO = $1",[idEvento])
+
+    //console.log(response.rows)
+
+    res.json(JSON.stringify(response.rows))
+
+
+}
+
 
 const deleteEvents = async (req, res) => {
 
@@ -83,6 +99,9 @@ router.get('/eventos', (req, res) => {
     getEvents(req, res);
 })
 
+router.get('/eventos/:id_evento', (req, res) => {
+    getEvent(req, res);
+})
 
 router.delete('/eventos/:id_evento', (req, res) => {
     deleteEvents(req, res);
